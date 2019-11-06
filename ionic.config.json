@@ -1,0 +1,8 @@
+{
+  "name": "imazi_app",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}
