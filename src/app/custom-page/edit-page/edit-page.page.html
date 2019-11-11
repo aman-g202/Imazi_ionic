@@ -6,8 +6,13 @@
 </ion-header>
 <ion-button (click) = "createElement()">Testing</ion-button>
 
-<div class="example-boundary" #elementRef>
-   
+<div class="example-boundary">
+    <div cdkDrag cdkDragBoundary=".example-boundary"  #elementRef></div>
+    <div cdkDrag cdkDragBoundary=".example-boundary"  #elementRef2></div>
+    <div cdkDrag  #elementRef></div>
+    <div cdkDrag  #elementRef></div>
+    <div cdkDrag  #elementRef></div>
+    <div cdkDrag  #elementRef></div>
   </div>
   <ion-content forceOverscroll="false">
 

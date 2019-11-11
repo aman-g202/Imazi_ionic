@@ -13,6 +13,7 @@ import { ToastController } from '@ionic/angular';
 export class EditPagePage implements OnInit {
 
   @ViewChild ('elementRef', {static: false}) elementRef;
+  @ViewChild ('elementRef2', {static: false}) elementRef2;
 
   constructor(private camera: Camera, private dragula: DragulaService, private toastController: ToastController) {
   }
@@ -22,9 +23,14 @@ export class EditPagePage implements OnInit {
   }
   createElement() {
       console.log(this.elementRef.nativeElement);
-      this.elementRef.nativeElement.appeendChild(` <div class="example-box" cdkDragBoundary=".example-boundary" cdkDrag>
+      this.elementRef.nativeElement.insertAdjacentHTML('beforeend', `
+      <div class="example-box" cdkDragBoundary=".example-boundary">
       I can only be dragged within the dotted container
     </div>`);
+      this.elementRef2.nativeElement.insertAdjacentHTML('beforeend', `
+    <div class="example-box" cdkDragBoundary=".example-boundary" >
+    I can within the dotted container
+  </div>`);
     }
 
 
