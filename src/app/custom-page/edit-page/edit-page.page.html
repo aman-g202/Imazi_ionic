@@ -1,12 +1,18 @@
+
 <ion-header>
   <ion-toolbar>
     <ion-title>Edit-Page</ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-button (click) = "createElement()">Testing</ion-button>
 
-<ion-content forceOverscroll="false">
+<div class="example-boundary" #elementRef>
+   
+  </div>
+  <ion-content forceOverscroll="false">
 
   <ion-img src="assets/images/avenger.jpg" class="image"></ion-img>
+
 
   <ion-range min="0" max="1" step="0.1" (ionChange)="changeOpacity($event)">
     <ion-icon size="small" slot="start" name="sunny"></ion-icon>
@@ -15,7 +21,7 @@
 
   <ion-tabs>
     <ion-tab-bar slot="bottom">
-      <ion-tab-button (click)="takePhoto(0)">
+      <ion-tab-button >
         <ion-label>IMAGE</ion-label>
         <ion-icon name="add"></ion-icon>
       </ion-tab-button>

@@ -10,11 +10,12 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Facebook } from '@ionic-native/facebook/ngx';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, DragulaModule.forRoot()],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, DragulaModule.forRoot(), DragDropModule],
   providers: [
     StatusBar,
     SplashScreen,
