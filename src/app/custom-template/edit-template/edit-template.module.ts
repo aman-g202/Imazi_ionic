@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { EditTemplatePage } from './edit-template.page';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { AngularCropperjsModule } from 'angular-cropperjs';
 
 const routes: Routes = [
   {
@@ -19,7 +21,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SharedModule,
+    AngularCropperjsModule
   ],
   declarations: [EditTemplatePage]
 })

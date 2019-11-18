@@ -1,41 +1,73 @@
 .image {
-    opacity: 0.8;
-    margin-top: 30px;
+    opacity: 1;
     height: 80px;
     width: 80px;
-}
-.example-box {
-    width: 200px;
-    height: 200px;
-    border: solid 1px #ccc;
-    color: rgba(0, 0, 0, 0.87);
-    cursor: move;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: #fff;
-    border-radius: 4px;
-    margin-right: 25px;
-    position: relative;
-    z-index: 1;
-    box-sizing: border-box;
-    padding: 10px;
-    transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
-    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-                0 2px 2px 0 rgba(0, 0, 0, 0.14),
-                0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  }
-  
-  .example-box:active {
-    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
-                0 8px 10px 1px rgba(0, 0, 0, 0.14),
-                0 3px 14px 2px rgba(0, 0, 0, 0.12);
-  }
-  
-  .example-boundary {
+}  
+  #example-boundary {
     width: 400px;
     height: 400px;
     max-width: 100%;
     border: dotted #ccc 2px;
   }
+
+  .container {
+  position: relative;
+  background-color: transparent;
+}
+
+.full {
+  width: 100%;
+  background: yellow;
+}
+
+.dragHandle {
+  position: absolute;
+  background-color: red;
+}
+
+.dragHandle.corner {
+  width: 5px;
+  height: 5px;
+  // position: absolute;
+  // cursor: nwse-resize;
+}
+
+.dragHandle.right {
+  height: 100%;
+  cursor: ew-resize;
+}
+
+.dragHandle.bottom {
+  width: 100%;
+  cursor: ns-resize;
+}
+
+.dragHandle1 {
+  position: absolute;
+  background-color: green;
+}
+
+.dragHandle1.corner {
+  width: 5px;
+  height: 5px;
+  cursor: nwse-resize;
+}
+
+.dragHandle1.right {
+  height: 100%;
+  cursor: ew-resize;
+}
+
+.dragHandle1.bottom {
+  width: 100%;
+  cursor: ns-resize;
+}
+
+.textBox {
+  font-size: 10px;
+}
+
+.textArea {
+  width: 50%;
+  background: transparent;
+}
