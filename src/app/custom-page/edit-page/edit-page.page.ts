@@ -357,9 +357,17 @@ export class EditPagePage implements OnInit, AfterViewInit {
       });
   }
 
+  // selectSticker() {
+  //   this.modalCtrl.create({
+  //     component: StickerModalComponent
+  //   }).then(modalEl => {
+  //     modalEl.present();
+  //   });
+  // }
   selectSticker() {
     this.modalCtrl.create({
-      component: StickerModalComponent
+      component: StickerModalComponent,
+      cssClass: 'translucent-modal'
     }).then(modalEl => {
       modalEl.present();
     });

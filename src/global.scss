@@ -55,3 +55,22 @@
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
     filter: alpha(opacity=20);
   }
+
+// .modal-wrapper{
+//     background: transparent !important;
+// }
+
+.translucent-modal {
+  background: rgba(0, 0, 0, 0.5);
+}
+.translucent-modal {
+  .modal-wrapper{
+    background: transparent !important;
+  }
+}
+// .sc-ion-modal-md-h {
+//   --background: none;
+// }
+// .sc-ion-modal-ios-h {
+//   --background: none;
+// }
