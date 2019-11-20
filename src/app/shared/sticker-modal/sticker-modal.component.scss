@@ -1,0 +1,31 @@
+.modal-wrapper{
+    background: transparent !important;
+}
+
+img{
+    padding: 20px;
+}
+
+ion-button{
+    --background: rgba(0,0,0,0.5);
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+}
+ion-content{
+    --background: transparent !important;
+}
+
+ion-toolbar{
+    --background: transparent;
+}
+
+ion-searchbar{
+    --background: transparent;
+    --placeholder-color: #ffffff;
+    --icon-color: #ffffff;
+    --cancel-button-color: #ffffff;
+    --clear-button-color: #ffffff;
+    --placeholder-opacity: 1;
+}
+
