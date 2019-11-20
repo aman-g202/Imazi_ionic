@@ -82,6 +82,7 @@
       (cdkDragMoved)="dragMove(dragHandleRight, $event)"></span>
     <span #dragHandleBottom cdkDragLockAxis="y" class="dragHandle bottom" cdkDrag
       (cdkDragMoved)="dragMove(dragHandleBottom, $event)"></span>
+    <ion-img src="../../assets/images/avenger.jpg"></ion-img>
   </div>
   <div #resizeBox1 class="container image" style="position: relative;" [style.width.px]="width"
     [style.height.px]="height" #elementRef1 cdkDrag cdkDragBoundary="#example-boundary">
@@ -91,6 +92,33 @@
       (cdkDragMoved)="dragMove1(dragHandleRight1, $event)"></span>
     <span #dragHandleBottom1 cdkDragLockAxis="y" class="dragHandle1 bottom" cdkDrag
       (cdkDragMoved)="dragMove1(dragHandleBottom1, $event)"></span>
+  </div>
+  <div #resizeBox2 class="container image" style="position: relative;" [style.width.px]="width"
+    [style.height.px]="height" #elementRef2 cdkDrag cdkDragBoundary="#example-boundary">
+    <span #dragHandleCorner2 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle2, corn2]" cdkDrag
+      (cdkDragMoved)="dragMove2(dragHandleCorner2, $event)"></span>
+    <span #dragHandleRight2 cdkDragLockAxis="x" class="dragHandle2 right" cdkDrag
+      (cdkDragMoved)="dragMove2(dragHandleRight2, $event)"></span>
+    <span #dragHandleBottom2 cdkDragLockAxis="y" class="dragHandle2 bottom" cdkDrag
+      (cdkDragMoved)="dragMove2(dragHandleBottom2, $event)"></span>
+  </div>
+  <div #resizeBox3 class="container image" style="position: relative;" [style.width.px]="width"
+    [style.height.px]="height" #elementRef3 cdkDrag cdkDragBoundary="#example-boundary">
+    <span #dragHandleCorner3 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle3, corn3]" cdkDrag
+      (cdkDragMoved)="dragMove3(dragHandleCorner3, $event)"></span>
+    <span #dragHandleRight3 cdkDragLockAxis="x" class="dragHandle3 right" cdkDrag
+      (cdkDragMoved)="dragMove3(dragHandleRight3, $event)"></span>
+    <span #dragHandleBottom3 cdkDragLockAxis="y" class="dragHandle3 bottom" cdkDrag
+      (cdkDragMoved)="dragMove3(dragHandleBottom3, $event)"></span>
+  </div>
+  <div #resizeBox4 class="container image" style="position: relative;" [style.width.px]="width"
+    [style.height.px]="height" #elementRef4 cdkDrag cdkDragBoundary="#example-boundary">
+    <span #dragHandleCorner4 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle4, corn4]" cdkDrag
+      (cdkDragMoved)="dragMove4(dragHandleCorner4, $event)"></span>
+    <span #dragHandleRight4 cdkDragLockAxis="x" class="dragHandle4 right" cdkDrag
+      (cdkDragMoved)="dragMove4(dragHandleRight4, $event)"></span>
+    <span #dragHandleBottom4 cdkDragLockAxis="y" class="dragHandle4 bottom" cdkDrag
+      (cdkDragMoved)="dragMove4(dragHandleBottom4, $event)"></span>
   </div>
 
   <!-- Dynamically adding text Area div's -->

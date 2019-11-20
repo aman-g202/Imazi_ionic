@@ -42,23 +42,23 @@
   cursor: ns-resize;
 }
 
-.dragHandle1 {
+.dragHandle1, .dragHandle2, .dragHandle3, .dragHandle4 {
   position: absolute;
   background-color: green;
 }
 
-.dragHandle1.corner {
+.dragHandle1.corner, .dragHandle2.corner, .dragHandle3corner, .dragHandle4.corner {
   width: 5px;
   height: 5px;
   cursor: nwse-resize;
 }
 
-.dragHandle1.right {
+.dragHandle1.right, .dragHandle2.right, .dragHandle3.right, .dragHandle4.right {
   height: 100%;
   cursor: ew-resize;
 }
 
-.dragHandle1.bottom {
+.dragHandle1.bottom, .dragHandle2.bottom, .dragHandle3.bottom, .dragHandle4.bottom {
   width: 100%;
   cursor: ns-resize;
 }

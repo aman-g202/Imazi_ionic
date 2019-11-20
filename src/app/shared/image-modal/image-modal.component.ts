@@ -25,7 +25,7 @@ export class ImageModalComponent implements OnInit {
       movable: true,
       zoomable: true,
       scalable: true,
-      autoCropArea: 0.8,
+      autoCropArea: 0.8
     };
   }
 

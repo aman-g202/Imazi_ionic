@@ -15,16 +15,36 @@ import { StickerModalComponent } from 'src/app/shared/sticker-modal/sticker-moda
 
 export class EditPagePage implements OnInit, AfterViewInit {
 
+  // All dynamically adding image reference's
   @ViewChild('elementRef', { static: false }) elementRef;
   @ViewChild('resizeBox', { static: false }) resizeBox: ElementRef;
   @ViewChild('dragHandleCorner', { static: false }) dragHandleCorner: ElementRef;
   @ViewChild('dragHandleRight', { static: false }) dragHandleRight: ElementRef;
   @ViewChild('dragHandleBottom', { static: false }) dragHandleBottom: ElementRef;
+
   @ViewChild('elementRef1', { static: false }) elementRef1;
   @ViewChild('resizeBox1', { static: false }) resizeBox1: ElementRef;
   @ViewChild('dragHandleCorner1', { static: false }) dragHandleCorner1: ElementRef;
   @ViewChild('dragHandleRight1', { static: false }) dragHandleRight1: ElementRef;
   @ViewChild('dragHandleBottom1', { static: false }) dragHandleBottom1: ElementRef;
+
+  @ViewChild('elementRef2', { static: false }) elementRef2;
+  @ViewChild('resizeBox2', { static: false }) resizeBox2: ElementRef;
+  @ViewChild('dragHandleCorner2', { static: false }) dragHandleCorner2: ElementRef;
+  @ViewChild('dragHandleRight2', { static: false }) dragHandleRight2: ElementRef;
+  @ViewChild('dragHandleBottom2', { static: false }) dragHandleBottom2: ElementRef;
+
+  @ViewChild('elementRef3', { static: false }) elementRef3;
+  @ViewChild('resizeBox3', { static: false }) resizeBox3: ElementRef;
+  @ViewChild('dragHandleCorner3', { static: false }) dragHandleCorner3: ElementRef;
+  @ViewChild('dragHandleRight3', { static: false }) dragHandleRight3: ElementRef;
+  @ViewChild('dragHandleBottom3', { static: false }) dragHandleBottom3: ElementRef;
+
+  @ViewChild('elementRef4', { static: false }) elementRef4;
+  @ViewChild('resizeBox4', { static: false }) resizeBox4: ElementRef;
+  @ViewChild('dragHandleCorner4', { static: false }) dragHandleCorner4: ElementRef;
+  @ViewChild('dragHandleRight4', { static: false }) dragHandleRight4: ElementRef;
+  @ViewChild('dragHandleBottom4', { static: false }) dragHandleBottom4: ElementRef;
 
   // All dynamically adding text area reference's
   @ViewChild('inputText5', { static: false }) inputText5: ElementRef;
@@ -37,6 +57,13 @@ export class EditPagePage implements OnInit, AfterViewInit {
   corn: string = 'test2';
   drHandle1: string = 'test1';
   corn1: string = 'test2';
+  drHandle2: string = 'test1';
+  corn2: string = 'test2';
+  drHandle3: string = 'test1';
+  corn3: string = 'test2';
+  drHandle4: string = 'test1';
+  corn4: string = 'test2';
+
   imageFile: any;
   selectedImage: boolean = false;
 
@@ -48,6 +75,7 @@ export class EditPagePage implements OnInit, AfterViewInit {
               private storageService: StorageService,
               private renderer: Renderer2,
               private el: ElementRef) {
+
   }
 
   ngOnInit() {
@@ -265,20 +293,83 @@ export class EditPagePage implements OnInit, AfterViewInit {
     return this.dragHandleBottom1.nativeElement;
   }
 
+  get resizeBoxElement2(): HTMLElement {
+    return this.resizeBox2.nativeElement;
+  }
+
+  get dragHandleCornerElement2(): HTMLElement {
+    return this.dragHandleCorner2.nativeElement;
+  }
+
+  get dragHandleRightElement2(): HTMLElement {
+    return this.dragHandleRight2.nativeElement;
+  }
+
+  get dragHandleBottomElement2(): HTMLElement {
+    return this.dragHandleBottom2.nativeElement;
+  }
+
+  get resizeBoxElement3(): HTMLElement {
+    return this.resizeBox3.nativeElement;
+  }
+
+  get dragHandleCornerElement3(): HTMLElement {
+    return this.dragHandleCorner3.nativeElement;
+  }
+
+  get dragHandleRightElement3(): HTMLElement {
+    return this.dragHandleRight3.nativeElement;
+  }
+
+  get dragHandleBottomElement3(): HTMLElement {
+    return this.dragHandleBottom3.nativeElement;
+  }
+
+  get resizeBoxElement4(): HTMLElement {
+    return this.resizeBox4.nativeElement;
+  }
+
+  get dragHandleCornerElement4(): HTMLElement {
+    return this.dragHandleCorner4.nativeElement;
+  }
+
+  get dragHandleRightElement4(): HTMLElement {
+    return this.dragHandleRight4.nativeElement;
+  }
+
+  get dragHandleBottomElement4(): HTMLElement {
+    return this.dragHandleBottom4.nativeElement;
+  }
+
   ngAfterViewInit() {
     this.setAllHandleTransform();
   }
 
   setAllHandleTransform() {
-    const rect = this.resizeBoxElement.getBoundingClientRect();
+    let rect = this.resizeBoxElement.getBoundingClientRect();
     this.setHandleTransform(this.dragHandleCornerElement, rect, 'both');
     this.setHandleTransform(this.dragHandleRightElement, rect, 'x');
     this.setHandleTransform(this.dragHandleBottomElement, rect, 'y');
 
-    const rect1 = this.resizeBoxElement1.getBoundingClientRect();
-    this.setHandleTransform(this.dragHandleCornerElement1, rect1, 'both');
-    this.setHandleTransform(this.dragHandleRightElement1, rect1, 'x');
-    this.setHandleTransform(this.dragHandleBottomElement1, rect1, 'y');
+    rect = this.resizeBoxElement1.getBoundingClientRect();
+    this.setHandleTransform(this.dragHandleCornerElement1, rect, 'both');
+    this.setHandleTransform(this.dragHandleRightElement1, rect, 'x');
+    this.setHandleTransform(this.dragHandleBottomElement1, rect, 'y');
+
+    rect = this.resizeBoxElement2.getBoundingClientRect();
+    this.setHandleTransform(this.dragHandleCornerElement2, rect, 'both');
+    this.setHandleTransform(this.dragHandleRightElement2, rect, 'x');
+    this.setHandleTransform(this.dragHandleBottomElement2, rect, 'y');
+
+    rect = this.resizeBoxElement3.getBoundingClientRect();
+    this.setHandleTransform(this.dragHandleCornerElement3, rect, 'both');
+    this.setHandleTransform(this.dragHandleRightElement3, rect, 'x');
+    this.setHandleTransform(this.dragHandleBottomElement3, rect, 'y');
+
+    rect = this.resizeBoxElement4.getBoundingClientRect();
+    this.setHandleTransform(this.dragHandleCornerElement4, rect, 'both');
+    this.setHandleTransform(this.dragHandleRightElement4, rect, 'x');
+    this.setHandleTransform(this.dragHandleBottomElement4, rect, 'y');
   }
 
   setHandleTransform(
@@ -315,6 +406,25 @@ export class EditPagePage implements OnInit, AfterViewInit {
     });
   }
 
+  dragMove2(dragHandle: HTMLElement, $event: CdkDragMove<any>) {
+    this.ngZone.runOutsideAngular(() => {
+      this.resize(dragHandle, this.resizeBoxElement2);
+    });
+  }
+
+  dragMove3(dragHandle: HTMLElement, $event: CdkDragMove<any>) {
+    this.ngZone.runOutsideAngular(() => {
+      this.resize(dragHandle, this.resizeBoxElement3);
+    });
+  }
+
+  dragMove4(dragHandle: HTMLElement, $event: CdkDragMove<any>) {
+    this.ngZone.runOutsideAngular(() => {
+      this.resize(dragHandle, this.resizeBoxElement4);
+    });
+  }
+
+
   resize(dragHandle: HTMLElement, target: HTMLElement) {
     const dragRect = dragHandle.getBoundingClientRect();
     const targetRect = target.getBoundingClientRect();
@@ -350,11 +460,79 @@ export class EditPagePage implements OnInit, AfterViewInit {
     })
       .then(result => {
         if (result.role === 'confirm') {
-          this.elementRef.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.croppedImage}></ion-img>`);
-          this.drHandle = 'dragHandle';
-          this.corn = 'corner';
+          // this.elementRef.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.croppedImage}></ion-img>`);
+          // this.drHandle = 'dragHandle';
+          // this.corn = 'corner';
+          this.onAddImage(result);
         }
       });
+  }
+
+  onAddImage(result: any) {
+    let val = 0;
+    let count = 0;
+
+    let childElements = this.elementRef4.nativeElement.children;
+    if (childElements[3]) {
+      count += 1;
+    } else {
+      val = 5;
+    }
+
+    childElements = this.elementRef3.nativeElement.children;
+    if (childElements[3]) {
+      count += 1;
+    } else {
+      val = 4;
+    }
+
+    childElements = this.elementRef2.nativeElement.children;
+    if (childElements[3]) {
+      count += 1;
+    } else {
+      val = 3;
+    }
+
+    childElements = this.elementRef1.nativeElement.children;
+    if (childElements[3]) {
+      count += 1;
+    } else {
+      val = 2;
+    }
+
+    childElements = this.elementRef.nativeElement.children;
+    if (childElements[3]) {
+      count += 1;
+    } else {
+      val = 1;
+    }
+
+    if (count < 5) {
+      switch (val) {
+        case 5: this.elementRef4.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.croppedImage}></ion-img>`);
+                this.drHandle4 = 'dragHandle';
+                this.corn4 = 'corner';
+                break;
+        case 4: this.elementRef3.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.croppedImage}></ion-img>`);
+                this.drHandle3 = 'dragHandle';
+                this.corn3 = 'corner';
+                break;
+        case 3: this.elementRef2.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.croppedImage}></ion-img>`);
+                this.drHandle2 = 'dragHandle';
+                this.corn2 = 'corner';
+                break;
+        case 2: this.elementRef1.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.croppedImage}></ion-img>`);
+                this.drHandle1 = 'dragHandle';
+                this.corn1 = 'corner';
+                break;
+        case 1: this.elementRef.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.croppedImage}></ion-img>`);
+                this.drHandle = 'dragHandle';
+                this.corn = 'corner';
+                break;
+      }
+    } else {
+      // Show alert over here maximum allocation reached
+    }
   }
 
   selectSticker() {
