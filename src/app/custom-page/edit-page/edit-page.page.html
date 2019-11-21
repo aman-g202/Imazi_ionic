@@ -16,7 +16,6 @@
   </ion-range> -->
 
 </ion-content>
-
 <ion-tabs *ngIf="showToolbar; else option">
   <ion-tab-bar slot="bottom">
     <ion-row>
@@ -45,9 +44,9 @@
     <ion-tab-bar slot="bottom">
       <ion-row>
         <ion-col size-sm="2">
-            <ion-button (click)="deleteSelectedTextArea()" color="danger" fill="outline">
-              <ion-icon slot="icon-only" name="trash"></ion-icon>
-            </ion-button>
+          <ion-button (click)="deleteSelectedTextArea()" color="danger" fill="outline">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-button>
         </ion-col>
         <ion-col size-sm="4">
           <ion-button (click)="decrementTextSize()"> 
@@ -55,26 +54,25 @@
           </ion-button>
         </ion-col>
         <ion-col size-sm="2">
-         <p>{{ textAreaSize }} px</p>
+          <p>{{ textAreaSize }} px</p>
         </ion-col>
         <ion-col size-sm="2">
-            <ion-button (click)="incrementTextSize()">
-                <ion-icon slot="icon-only" name="add-circle"></ion-icon>
-            </ion-button>
+          <ion-button (click)="incrementTextSize()">
+            <ion-icon slot="icon-only" name="add-circle"></ion-icon>
+          </ion-button>
         </ion-col>
         <ion-col size-sm="2">
-            <ion-button (click)="checkmarkTextAreaSizeView()" color="success" fill="outline">
-              <ion-icon slot="icon-only" name="checkmark"></ion-icon>
-            </ion-button>
+          <ion-button (click)="checkmarkTextAreaSizeView()" color="success" fill="outline">
+            <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+          </ion-button>
         </ion-col>
       </ion-row>
     </ion-tab-bar>
   </ion-tabs>
 </ng-template>
-
 <!-- <ion-button (click)="createElement()" expand="full">Testing</ion-button> -->
 <div id="example-boundary">
-  <div #resizeBox class="container image" style="position: relative;" [style.width.px]="width"
+  <div #resizeBox class="container image" style="position: relative;border-radius: 50%;" [style.width.px]="width"
     [style.height.px]="height" #elementRef cdkDrag cdkDragBoundary="#example-boundary">
     <span #dragHandleCorner [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle, corn]" cdkDrag
       (cdkDragMoved)="dragMove(dragHandleCorner, $event)"></span>
@@ -82,7 +80,6 @@
       (cdkDragMoved)="dragMove(dragHandleRight, $event)"></span>
     <span #dragHandleBottom cdkDragLockAxis="y" class="dragHandle bottom" cdkDrag
       (cdkDragMoved)="dragMove(dragHandleBottom, $event)"></span>
-    <ion-img src="../../assets/images/avenger.jpg"></ion-img>
   </div>
   <div #resizeBox1 class="container image" style="position: relative;" [style.width.px]="width"
     [style.height.px]="height" #elementRef1 cdkDrag cdkDragBoundary="#example-boundary">
@@ -123,19 +120,28 @@
 
   <!-- Dynamically adding text Area div's -->
 
-  <div class="textArea" cdkDrag cdkDragBoundary="#example-boundary" #inputText5 (press)="onLongPressTextArea($event,5)">
+  <div class="textArea backprop8" cdkDrag cdkDragBoundary="#example-boundary" #inputText8 (press)="onLongPressTextArea($event,8)">
     
   </div>
-  <div class="textArea" cdkDrag cdkDragBoundary="#example-boundary" #inputText4 (press)="onLongPressTextArea($event,4)">
+  <div class="textArea backprop7" cdkDrag cdkDragBoundary="#example-boundary" #inputText7 (press)="onLongPressTextArea($event,7)">
+      
+  </div>
+  <div class="textArea backprop6" cdkDrag cdkDragBoundary="#example-boundary" #inputText6 (press)="onLongPressTextArea($event,6)">
+      
+  </div>
+  <div class="textArea backprop5" cdkDrag cdkDragBoundary="#example-boundary" #inputText5 (press)="onLongPressTextArea($event,5)">
     
   </div>
-  <div class="textArea" cdkDrag cdkDragBoundary="#example-boundary" #inputText3 (press)="onLongPressTextArea($event,3)">
+  <div class="textArea backprop4" cdkDrag cdkDragBoundary="#example-boundary" #inputText4 (press)="onLongPressTextArea($event,4)">
     
   </div>
-  <div class="textArea" cdkDrag cdkDragBoundary="#example-boundary" #inputText2 (press)="onLongPressTextArea($event,2)">
+  <div class="textArea backprop3" cdkDrag cdkDragBoundary="#example-boundary" #inputText3 (press)="onLongPressTextArea($event,3)">
     
   </div>
-  <div class="textArea" cdkDrag cdkDragBoundary="#example-boundary" #inputText1 (press)="onLongPressTextArea($event,1)">
+  <div class="textArea backprop2" cdkDrag cdkDragBoundary="#example-boundary" #inputText2 (press)="onLongPressTextArea($event,2)">
+    
+  </div>
+  <div class="textArea backprop1" cdkDrag cdkDragBoundary="#example-boundary" #inputText1 (press)="onLongPressTextArea($event,1)">
     
   </div>
 

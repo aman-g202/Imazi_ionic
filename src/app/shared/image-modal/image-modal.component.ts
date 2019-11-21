@@ -21,11 +21,11 @@ export class ImageModalComponent implements OnInit {
     this.cropperOptions = {
       dragMode: 'crop',
       aspectRatio: 1,
-      autoCrop: true,
-      movable: true,
+      // autoCrop: true,
+      // movable: true,
       zoomable: true,
       scalable: true,
-      autoCropArea: 0.8
+      // autoCropArea: 0.8
     };
   }
 

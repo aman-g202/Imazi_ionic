@@ -47,6 +47,9 @@ export class EditPagePage implements OnInit, AfterViewInit {
   @ViewChild('dragHandleBottom4', { static: false }) dragHandleBottom4: ElementRef;
 
   // All dynamically adding text area reference's
+  @ViewChild('inputText8', { static: false }) inputText8: ElementRef;
+  @ViewChild('inputText7', { static: false }) inputText7: ElementRef;
+  @ViewChild('inputText6', { static: false }) inputText6: ElementRef;
   @ViewChild('inputText5', { static: false }) inputText5: ElementRef;
   @ViewChild('inputText4', { static: false }) inputText4: ElementRef;
   @ViewChild('inputText3', { static: false }) inputText3: ElementRef;
@@ -110,7 +113,28 @@ export class EditPagePage implements OnInit, AfterViewInit {
     let val = 0;
     let count = 0;
 
-    let childElements = this.inputText5.nativeElement.children;
+    let childElements = this.inputText8.nativeElement.children;
+    if (childElements[0]) {
+      count += 1;
+    } else {
+      val = 8;
+    }
+
+    childElements = this.inputText7.nativeElement.children;
+    if (childElements[0]) {
+      count += 1;
+    } else {
+      val = 7;
+    }
+
+    childElements = this.inputText6.nativeElement.children;
+    if (childElements[0]) {
+      count += 1;
+    } else {
+      val = 6;
+    }
+
+    childElements = this.inputText5.nativeElement.children;
     if (childElements[0]) {
       count += 1;
     } else {
@@ -145,36 +169,44 @@ export class EditPagePage implements OnInit, AfterViewInit {
       val = 1;
     }
 
-    if (count < 5) {
+    if (count < 8) {
       switch (val) {
+        case 8: this.inputText8.nativeElement.insertAdjacentHTML('beforeend', `<ion-item lines="none">
+                <ion-textarea id="textarea8" autoGrow="true" placeholder="Enter text here..."></ion-textarea>
+                </ion-item>`);
+                break;
+        case 7: this.inputText7.nativeElement.insertAdjacentHTML('beforeend', `<ion-item lines="none">
+                <ion-textarea id="textarea7" autoGrow="true" placeholder="Enter text here..."></ion-textarea>
+                </ion-item>`);
+                break;
+        case 6: this.inputText6.nativeElement.insertAdjacentHTML('beforeend', `<ion-item lines="none">
+                <ion-textarea id="textarea6" autoGrow="true" placeholder="Enter text here..."></ion-textarea>
+                </ion-item>`);
+                break;
         case 5: this.inputText5.nativeElement.insertAdjacentHTML('beforeend', `<ion-item lines="none">
-                <ion-textarea id="textarea5" autoGrow="true" placeholder="Enter more information here..."></ion-textarea>
+                <ion-textarea id="textarea5" autoGrow="true" placeholder="Enter text here..."></ion-textarea>
                 </ion-item>`);
                 break;
         case 4: this.inputText4.nativeElement.insertAdjacentHTML('beforeend', `<ion-item lines="none">
-                <ion-textarea id="textarea4" autoGrow="true" placeholder="Enter more information here..."></ion-textarea>
+                <ion-textarea id="textarea4" autoGrow="true" placeholder="Enter text here..."></ion-textarea>
                 </ion-item>`);
                 break;
         case 3: this.inputText3.nativeElement.insertAdjacentHTML('beforeend', `<ion-item lines="none">
-                <ion-textarea id="textarea3" autoGrow="true" placeholder="Enter more information here..."></ion-textarea>
+                <ion-textarea id="textarea3" autoGrow="true" placeholder="Enter text here..."></ion-textarea>
                 </ion-item>`);
                 break;
         case 2: this.inputText2.nativeElement.insertAdjacentHTML('beforeend', `<ion-item lines="none">
-                <ion-textarea id="textarea2" autoGrow="true" placeholder="Enter more information here..."></ion-textarea>
+                <ion-textarea id="textarea2" autoGrow="true" placeholder="Enter text here..."></ion-textarea>
                 </ion-item>`);
                 break;
         case 1: this.inputText1.nativeElement.insertAdjacentHTML('beforeend', `<ion-item lines="none">
-                <ion-textarea id="textarea1" autoGrow="true" placeholder="Enter more information here..."></ion-textarea>
+                <ion-textarea id="textarea1" autoGrow="true" placeholder="Enter text here..."></ion-textarea>
                 </ion-item>`);
                 break;
       }
     } else {
       // Show alert over here maximum allocation reached
     }
-  }
-
-  setNewTextSize(event: any) {
-    document.getElementById('textarea5"').style.fontSize = event.detail.value + 'px';
   }
 
   onLongPressTextArea(event: any, textAreaNo: number) {
@@ -186,6 +218,27 @@ export class EditPagePage implements OnInit, AfterViewInit {
     this.storageService.getItemForTextArea().then(value => {
       let childElements;
       switch (+value) {
+        case 8: childElements = this.inputText8.nativeElement.children;
+                if (childElements[0]) {
+                  this.renderer.removeChild(this.inputText8.nativeElement, childElements[0]);
+                  this.storageService.removeItemForTextArea();
+                  this.showToolbar = true;
+                }
+                break;
+        case 7: childElements = this.inputText7.nativeElement.children;
+                if (childElements[0]) {
+                  this.renderer.removeChild(this.inputText7.nativeElement, childElements[0]);
+                  this.storageService.removeItemForTextArea();
+                  this.showToolbar = true;
+                }
+                break;
+        case 6: childElements = this.inputText6.nativeElement.children;
+                if (childElements[0]) {
+                  this.renderer.removeChild(this.inputText6.nativeElement, childElements[0]);
+                  this.storageService.removeItemForTextArea();
+                  this.showToolbar = true;
+                }
+                break;
         case 5: childElements = this.inputText5.nativeElement.children;
                 if (childElements[0]) {
                   this.renderer.removeChild(this.inputText5.nativeElement, childElements[0]);
@@ -229,6 +282,12 @@ export class EditPagePage implements OnInit, AfterViewInit {
     this.textAreaSize += 1;
     this.storageService.getItemForTextArea().then(value => {
       switch (+value) {
+        case 8: document.getElementById('textarea8').style.fontSize = this.textAreaSize + 'px';
+                break;
+        case 7: document.getElementById('textarea7').style.fontSize = this.textAreaSize + 'px';
+                break;
+        case 6: document.getElementById('textarea6').style.fontSize = this.textAreaSize + 'px';
+                break;
         case 5: document.getElementById('textarea5').style.fontSize = this.textAreaSize + 'px';
                 break;
         case 4: document.getElementById('textarea4').style.fontSize = this.textAreaSize + 'px';
@@ -247,6 +306,12 @@ export class EditPagePage implements OnInit, AfterViewInit {
       this.textAreaSize -= 1;
       this.storageService.getItemForTextArea().then(value => {
         switch (+value) {
+          case 8: document.getElementById('textarea8').style.fontSize = this.textAreaSize + 'px';
+                  break;
+          case 7: document.getElementById('textarea7').style.fontSize = this.textAreaSize + 'px';
+                  break;
+          case 6: document.getElementById('textarea6').style.fontSize = this.textAreaSize + 'px';
+                  break;
           case 5: document.getElementById('textarea5').style.fontSize = this.textAreaSize + 'px';
                   break;
           case 4: document.getElementById('textarea4').style.fontSize = this.textAreaSize + 'px';
@@ -460,9 +525,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
     })
       .then(result => {
         if (result.role === 'confirm') {
-          // this.elementRef.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.croppedImage}></ion-img>`);
-          // this.drHandle = 'dragHandle';
-          // this.corn = 'corner';
           this.onAddImage(result);
         }
       });
@@ -552,6 +614,15 @@ export class EditPagePage implements OnInit, AfterViewInit {
   checkmarkTextAreaSizeView() {
     this.storageService.getItemForTextArea().then(value => {
       switch (+value) {
+        case 8: this.storageService.removeItemForTextArea();
+                this.showToolbar = true;
+                break;
+        case 7: this.storageService.removeItemForTextArea();
+                this.showToolbar = true;
+                break;
+        case 6: this.storageService.removeItemForTextArea();
+                this.showToolbar = true;
+                break;
         case 5: this.storageService.removeItemForTextArea();
                 this.showToolbar = true;
                 break;

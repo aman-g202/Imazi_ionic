@@ -27,7 +27,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     DragDropModule,
     SharedModule,
-    AngularCropperjsModule,
+    AngularCropperjsModule
   ],
   declarations: [EditPagePage],
   providers: [Camera]
