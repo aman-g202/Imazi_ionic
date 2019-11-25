@@ -25,4 +25,36 @@ export class StorageService {
     async removeItemForTextArea() {
         await Storage.remove({ key: 'TextAreaNumber' });
     }
+
+    async setItemForImage(num: number) {
+        await Storage.set({
+            key: 'ImageNumber',
+            value: num + ''
+        });
+    }
+
+    async getItemForImage() {
+        const item = await Storage.get({ key: 'ImageNumber' });
+        return item.value;
+    }
+
+    async removeItemForImage() {
+        await Storage.remove({ key: 'ImageNumber' });
+    }
+
+    async setItemForSticker(num: number) {
+        await Storage.set({
+            key: 'StickerNumber',
+            value: num + ''
+        });
+    }
+
+    async getItemForSticker() {
+        const item = await Storage.get({ key: 'StickerNumber' });
+        return item.value;
+    }
+
+    async removeItemForSticker() {
+        await Storage.remove({ key: 'StickerNumber' });
+    }
 }

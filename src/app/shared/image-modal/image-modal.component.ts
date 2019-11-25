@@ -10,6 +10,7 @@ import { AngularCropperjsComponent } from 'angular-cropperjs';
 export class ImageModalComponent implements OnInit {
 
   @Input() pickedImage: string | File;
+  @Input() cropArea: any;
   @ViewChild('angularCropper', { static: false }) public angularCropper: AngularCropperjsComponent;
   cropperOptions: any;
   croppedImage = null;
@@ -20,7 +21,7 @@ export class ImageModalComponent implements OnInit {
   constructor(private modalCtrl: ModalController) {
     this.cropperOptions = {
       dragMode: 'crop',
-      aspectRatio: 1,
+      aspectRatio: this.cropArea,
       // autoCrop: true,
       // movable: true,
       zoomable: true,

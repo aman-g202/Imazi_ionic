@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { ImageModalComponent } from './image-modal/image-modal.component';
 import { AngularCropperjsModule } from 'angular-cropperjs';
 import { StickerModalComponent } from './sticker-modal/sticker-modal.component';
+import { StickerService } from './sticker-modal/sticker.service';
 
 @NgModule({
     declarations: [
@@ -14,7 +15,8 @@ import { StickerModalComponent } from './sticker-modal/sticker-modal.component';
     ],
     imports: [CommonModule, IonicModule, AngularCropperjsModule],
     exports: [ImagePickerComponent, ImageModalComponent, StickerModalComponent],
-    entryComponents: [ImageModalComponent, StickerModalComponent]
+    entryComponents: [ImageModalComponent, StickerModalComponent],
+    providers: [StickerService]
 })
 
 export class SharedModule {}

@@ -11,11 +11,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { Facebook } from '@ionic-native/facebook/ngx';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { IonicGestureConfig } from './utils/IonicGestureConfig';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, DragDropModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, DragDropModule, HttpClientModule],
   providers: [
     StatusBar,
     SplashScreen,

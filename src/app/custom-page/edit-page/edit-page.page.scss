@@ -1,8 +1,10 @@
-.image {
+
+.image, .image1, .image2, .image3, .image4, .image5, .image6, .image7 {
     opacity: 1;
     height: 80px;
     width: 80px;
 }  
+
   #example-boundary {
     width: 400px;
     height: 400px;
@@ -20,45 +22,27 @@
   background: yellow;
 }
 
-.dragHandle {
-  position: absolute;
-  background-color: red;
-}
-
-.dragHandle.corner {
-  width: 5px;
-  height: 5px;
-  // position: absolute;
-  // cursor: nwse-resize;
-}
-
-.dragHandle.right {
-  height: 100%;
-  cursor: ew-resize;
-}
-
-.dragHandle.bottom {
-  width: 100%;
-  cursor: ns-resize;
-}
-
-.dragHandle1, .dragHandle2, .dragHandle3, .dragHandle4 {
+.dragHandle, .dragHandle1, .dragHandle2, .dragHandle3, .dragHandle4, .dragHandle5, .dragHandle6, .dragHandle7, 
+.dragHandle9, .dragHandle10, .dragHandle11, .dragHandle12, .dragHandle13, .dragHandle14, .dragHandle15, .dragHandle16 {
   position: absolute;
   background-color: green;
 }
 
-.dragHandle1.corner, .dragHandle2.corner, .dragHandle3corner, .dragHandle4.corner {
-  width: 5px;
-  height: 5px;
+.dragHandle.corner, .dragHandle1.corner, .dragHandle2.corner, .dragHandle3.corner, .dragHandle4.corner, .dragHandle5.corner, .dragHandle6.corner, .dragHandle7.corner,
+.dragHandl9.corner, .dragHandle10.corner, .dragHandle11.corner, .dragHandle12.corner, .dragHandle13.corner, .dragHandle14.corner, .dragHandle15.corner, .dragHandle16.corner {
+  width: 6px;
+  height: 6px;
   cursor: nwse-resize;
 }
 
-.dragHandle1.right, .dragHandle2.right, .dragHandle3.right, .dragHandle4.right {
+.dragHandle.right, .dragHandle1.right, .dragHandle2.right, .dragHandle3.right, .dragHandle4.right, .dragHandle5.right, .dragHandle6.right, .dragHandle7.right,
+.dragHandle9.right, .dragHandle10.right, .dragHandle11.right, .dragHandle12.right, .dragHandle13.right, .dragHandle14.right, .dragHandle15.right, .dragHandle16.right {
   height: 100%;
   cursor: ew-resize;
 }
 
-.dragHandle1.bottom, .dragHandle2.bottom, .dragHandle3.bottom, .dragHandle4.bottom {
+.dragHandle.bottom, .dragHandle1.bottom, .dragHandle2.bottom, .dragHandle3.bottom, .dragHandle4.bottom, .dragHandle5.bottom, .dragHandle6.bottom, .dragHandle7.bottom,
+.dragHandle9.bottom, .dragHandle10.bottom, .dragHandle11.bottom, .dragHandle12.bottom, .dragHandle13.bottom, .dragHandle14.bottom, .dragHandle15.bottom, .dragHandle16.bottom {
   width: 100%;
   cursor: ns-resize;
 }
@@ -67,15 +51,12 @@
   font-size: 10px;
 }
 
-.backprop8, .backprop7, .backprop6, .backprop5, .backprop4, .backprop3, .backprop2, .backprop1 {
+.textArea {
   width: 50%;
-  background: transparent;
+  position: relative;
+  float: left;
 }
 
-// .ellipseImage{
-//   background: url('../../../assets/images/avenger.jpg') no-repeat;
-//     background-size: 100%;
-//     width: 100px;
-//     border-radius: 100%;
-//     height: 100px;
-// }
+.textArea ion-item {
+  --background: transparent;
+}
