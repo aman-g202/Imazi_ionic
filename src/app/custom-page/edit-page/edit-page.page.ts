@@ -413,7 +413,7 @@ export class EditPagePage implements OnInit, AfterViewInit {
 
   onLongPressSticker(event: any, StickerNo: number) {
     console.log('aman', StickerNo);
-    this.storageService.setItemForImage(StickerNo);
+    this.storageService.setItemForSticker(StickerNo);
     this.showStickerToolBar = true;
   }
 
