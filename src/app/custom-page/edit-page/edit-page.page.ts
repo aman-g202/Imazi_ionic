@@ -1,10 +1,12 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation, ElementRef, AfterViewInit, NgZone, Renderer2 } from '@angular/core';
 import { CdkDragMove } from '@angular/cdk/drag-drop';
-import { ModalController } from '@ionic/angular';
+import { ModalController, Platform } from '@ionic/angular';
 
 import { ImageModalComponent } from 'src/app/shared/image-modal/image-modal.component';
 import { StorageService } from 'src/app/shared/storage.service';
 import { StickerModalComponent } from 'src/app/shared/sticker-modal/sticker-modal.component';
+
+
 
 @Component({
   selector: 'app-edit-page',
@@ -190,22 +192,28 @@ export class EditPagePage implements OnInit, AfterViewInit {
   showToolbar: boolean = true;
   showImageToolBar: boolean = false;
   showStickerToolBar: boolean = false;
+  showTextToolbar: boolean = false;
   textAreaSize: number = 10;
+
+  disabledBtn: boolean = true;
 
   constructor(private ngZone: NgZone,
               private modalCtrl: ModalController,
               private storageService: StorageService,
               private renderer: Renderer2,
-              private el: ElementRef) {
+              private el: ElementRef,
+              private platform: Platform) {
 
   }
 
   ngOnInit() {
     const idName = document.getElementById('example-boundary');
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+    const width = this.platform.width();
+    const height = this.platform.width();
+    const deviceHeight = this.platform.height();
     idName.style.width = width  + 'px';
     idName.style.height = height  + 'px';
+    idName.style.top = ((deviceHeight - 150) - height) / 2  + 'px';
   }
 
   createElement() {
@@ -272,22 +280,39 @@ export class EditPagePage implements OnInit, AfterViewInit {
   changeHeight(event: any) {
     this.storageService.getItemForTextArea().then(value => {
       switch (+value) {
-        case 8: document.getElementById('textBackProp8').style.height = event.detail.value + '%';
+        case 8: document.getElementById('textarea8').rows = event.detail.value;
                 break;
-        case 7: document.getElementById('textBackProp7').style.height = event.detail.value + '%';
+        case 7: document.getElementById('textarea7').rows = event.detail.value;
                 break;
-        case 6: document.getElementById('textBackProp6').style.height = event.detail.value + '%';
+        case 6: document.getElementById('textarea6').rows = event.detail.value;
                 break;
-        case 5: document.getElementById('textBackProp5').style.height = event.detail.value + '%';
+        case 5: document.getElementById('textarea5').rows = event.detail.value;
                 break;
-        case 4: document.getElementById('textBackProp4').style.height = event.detail.value + '%';
+        case 4: document.getElementById('textarea4').rows = event.detail.value;
                 break;
-        case 3: document.getElementById('textBackProp3').style.height = event.detail.value + '%';
+        case 3: document.getElementById('textarea3').rows = event.detail.value;
                 break;
-        case 2: document.getElementById('textBackProp2').style.height = event.detail.value + '%';
+        case 2: document.getElementById('textarea2').rows = event.detail.value;
                 break;
-        case 1: document.getElementById('textBackProp1').style.height = event.detail.value + '%';
+        case 1: document.getElementById('textarea1').rows = event.detail.value;
       }
+      // switch (+value) {
+      //   case 8: document.getElementById('textBackProp8').style.height = event.detail.value + '%';
+      //           break;
+      //   case 7: document.getElementById('textBackProp7').style.height = event.detail.value + '%';
+      //           break;
+      //   case 6: document.getElementById('textBackProp6').style.height = event.detail.value + '%';
+      //           break;
+      //   case 5: document.getElementById('textBackProp5').style.height = event.detail.value + '%';
+      //           break;
+      //   case 4: document.getElementById('textBackProp4').style.height = event.detail.value + '%';
+      //           break;
+      //   case 3: document.getElementById('textBackProp3').style.height = event.detail.value + '%';
+      //           break;
+      //   case 2: document.getElementById('textBackProp2').style.height = event.detail.value + '%';
+      //           break;
+      //   case 1: document.getElementById('textBackProp1').style.height = event.detail.value + '%';
+      // }
     });
   }
 
@@ -389,11 +414,17 @@ export class EditPagePage implements OnInit, AfterViewInit {
                 </ion-item>`);
                 break;
         case 1: this.textareadiv1 = false;
-                this.inputText1.nativeElement.insertAdjacentHTML('beforeend', `<ion-item lines="none">
-                <ion-textarea id="textarea1" autoGrow="true" placeholder="Enter text here..."></ion-textarea>
-                </ion-item>`);
+                this.inputText1.nativeElement.insertAdjacentHTML('beforeend', `
+                <ion-textarea id="textarea1" autoGrow="true" placeholder="Enter text here..." rows="1"></ion-textarea>
+                `);
                 console.log('aman');
                 break;
+        // case 1: this.textareadiv1 = false;
+        //         this.inputText1.nativeElement.insertAdjacentHTML('beforeend', `<ion-item lines="none">
+        //         <ion-textarea id="textarea1" autoGrow="true" placeholder="Enter text here..." rows="1"></ion-textarea>
+        //         </ion-item>`);
+        //         console.log('aman');
+        //         break;
       }
     } else {
       // Show alert over here maximum allocation reached
@@ -402,24 +433,34 @@ export class EditPagePage implements OnInit, AfterViewInit {
 
   onLongPressTextArea(event: any, textAreaNo: number) {
     this.storageService.setItemForTextArea(textAreaNo);
+    this.showTextToolbar = true;
     this.showToolbar = false;
+    this.showStickerToolBar = false;
+    this.showImageToolBar = false;
   }
 
   onLongPressImage(event: any, ImageNo: number) {
     this.storageService.setItemForImage(ImageNo);
     console.log('longPress', ImageNo);
     this.showImageToolBar = true;
+    this.showToolbar = false;
+    this.showStickerToolBar = false;
+    this.showTextToolbar = false;
   }
 
   onLongPressSticker(event: any, StickerNo: number) {
     console.log('aman', StickerNo);
     this.storageService.setItemForImage(StickerNo);
     this.showStickerToolBar = true;
+    this.showToolbar = false;
+    this.showTextToolbar = false;
+    this.showImageToolBar = false;
   }
 
   deleteSelectedTextArea() {
     this.storageService.getItemForTextArea().then(value => {
       let childElements;
+      this.showTextToolbar = false;
       switch (+value) {
         case 8: childElements = this.inputText8.nativeElement.children;
                 if (childElements[0]) {
@@ -669,6 +710,7 @@ export class EditPagePage implements OnInit, AfterViewInit {
   }
 
   incrementTextSize() {
+    this.disabledBtn = false;
     this.textAreaSize += 1;
     this.storageService.getItemForTextArea().then(value => {
       switch (+value) {
@@ -713,6 +755,9 @@ export class EditPagePage implements OnInit, AfterViewInit {
           case 1: document.getElementById('textarea1').style.fontSize = this.textAreaSize + 'px';
         }
       });
+    }
+    else{
+      this.disabledBtn = true;
     }
   }
 
@@ -1477,9 +1522,11 @@ export class EditPagePage implements OnInit, AfterViewInit {
     this.storageService.removeItemForSticker();
     this.showImageToolBar = false;
     this.showStickerToolBar = false;
+    this.showToolbar = true;
   }
 
   checkmarkTextAreaSizeView() {
+    this.showTextToolbar = false;
     this.storageService.getItemForTextArea().then(value => {
       switch (+value) {
         case 8: this.storageService.removeItemForTextArea();
