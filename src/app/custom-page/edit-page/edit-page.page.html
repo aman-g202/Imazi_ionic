@@ -11,28 +11,6 @@
 <ion-content>
 
 </ion-content>
-<!-- <ion-tabs *ngIf="showToolbar; else option">
-  <ion-tab-bar slot="bottom">
-    <ion-row>
-      <ion-col size-sm="4">
-        <app-image-picker (imagePicked)=choosenImage($event)>
-        </app-image-picker>
-      </ion-col>
-      <ion-col size-sm="4">
-        <ion-tab-button (click) = selectSticker()>
-          <ion-label>STICKER</ion-label>
-          <ion-icon name="add"></ion-icon>
-        </ion-tab-button>
-      </ion-col>
-      <ion-col size-sm="4">
-        <ion-tab-button (click)="onAddText()">
-          <ion-label>TEXT</ion-label>
-          <ion-icon name="add"></ion-icon>
-        </ion-tab-button>
-      </ion-col>
-    </ion-row>
-  </ion-tab-bar>
-</ion-tabs> -->
 
 <ion-footer *ngIf="showToolbar" color="primary">
     <ion-row>
@@ -54,23 +32,6 @@
         </ion-col>
       </ion-row>
 </ion-footer>
-
-<!-- <ion-tabs *ngIf="showImageToolBar">
-    <ion-tab-bar slot="bottom">
-      <ion-row>
-        <ion-col size-sm="4">
-          <ion-button (click)="backToToolbar()">
-            <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-          </ion-button>
-        </ion-col>
-        <ion-col size-sm="4" offset-sm="4">
-          <ion-button (click)="deleteSelectedImage()" color="danger" fill="outline">
-            <ion-icon slot="icon-only" name="trash"></ion-icon>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-tab-bar>
-</ion-tabs> -->
 
 <ion-footer *ngIf="showImageToolBar">
   <div>
@@ -108,26 +69,8 @@
       </ion-col>
     </ion-row>
 </ion-footer>
-<!-- <ion-tabs *ngIf="showStickerToolBar">
-  <ion-tab-bar slot="bottom">
-    <ion-row>
-      <ion-col size-sm="4">
-        <ion-button (click)="backToToolbar()">
-          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-        </ion-button>
-      </ion-col>
-      <ion-col size-sm="4" offset-sm="4">
-        <ion-button (click)="deleteSelectedSticker()" color="danger" fill="outline">
-          <ion-icon slot="icon-only" name="trash"></ion-icon>
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-tab-bar>
-</ion-tabs> -->
 
-<!-- <ng-template #option> -->
     <ion-footer *ngIf="showTextToolbar">
-      <!-- <ion-label padding="10" class="ion-text-center">Adjust Textbox Size</ion-label> -->
       <div>
           <ion-title>Adjust Textbox Width</ion-title>
       </div>
@@ -170,8 +113,7 @@
         </ion-row>
       </ion-grid>
     </ion-footer>
-<!-- </ng-template> -->
-<!-- <ion-button (click)="createElement()" expand="full">Testing</ion-button> -->
+
 <div id="example-boundary">
   <div #resizeBox class="container image" style="position: absolute;float: left;" [style.width.px]="width"
     [style.height.px]="height" #elementRef cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressImage($event,0)" [hidden]="imagediv">
@@ -186,36 +128,36 @@
     [style.height.px]="height" #elementRef1 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressImage($event,1)" [hidden]="imagediv1">
     <span #dragHandleCorner1 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle1, corn1]" cdkDrag
       (cdkDragMoved)="dragMove1(dragHandleCorner1, $event)"></span>
-    <span #dragHandleRight1 cdkDragLockAxis="x" class="dragHandle1 right" cdkDrag
+    <span #dragHandleRight1 cdkDragLockAxis="x" class="dragHandle right" cdkDrag
       (cdkDragMoved)="dragMove1(dragHandleRight1, $event)"></span>
-    <span #dragHandleBottom1 cdkDragLockAxis="y" class="dragHandle1 bottom" cdkDrag
+    <span #dragHandleBottom1 cdkDragLockAxis="y" class="dragHandle bottom" cdkDrag
       (cdkDragMoved)="dragMove1(dragHandleBottom1, $event)"></span>
   </div>
   <div #resizeBox2 class="container image2" style="position: absolute;float: left;" [style.width.px]="width"
     [style.height.px]="height" #elementRef2 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressImage($event,2)" [hidden]="imagediv2">
     <span #dragHandleCorner2 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle2, corn2]" cdkDrag
       (cdkDragMoved)="dragMove2(dragHandleCorner2, $event)"></span>
-    <span #dragHandleRight2 cdkDragLockAxis="x" class="dragHandle2 right" cdkDrag
+    <span #dragHandleRight2 cdkDragLockAxis="x" class="dragHandle right" cdkDrag
       (cdkDragMoved)="dragMove2(dragHandleRight2, $event)"></span>
-    <span #dragHandleBottom2 cdkDragLockAxis="y" class="dragHandle2 bottom" cdkDrag
+    <span #dragHandleBottom2 cdkDragLockAxis="y" class="dragHandle bottom" cdkDrag
       (cdkDragMoved)="dragMove2(dragHandleBottom2, $event)"></span>
   </div>
   <div #resizeBox3 class="container image3" style="position: absolute;float: left;" [style.width.px]="width"
     [style.height.px]="height" #elementRef3 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressImage($event,3)" [hidden]="imagediv3">
     <span #dragHandleCorner3 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle3, corn3]" cdkDrag
       (cdkDragMoved)="dragMove3(dragHandleCorner3, $event)"></span>
-    <span #dragHandleRight3 cdkDragLockAxis="x" class="dragHandle3 right" cdkDrag
+    <span #dragHandleRight3 cdkDragLockAxis="x" class="dragHandle right" cdkDrag
       (cdkDragMoved)="dragMove3(dragHandleRight3, $event)"></span>
-    <span #dragHandleBottom3 cdkDragLockAxis="y" class="dragHandle3 bottom" cdkDrag
+    <span #dragHandleBottom3 cdkDragLockAxis="y" class="dragHandle bottom" cdkDrag
       (cdkDragMoved)="dragMove3(dragHandleBottom3, $event)"></span>
   </div>
   <div #resizeBox4 class="container image4" style="position: absolute;float: left;" [style.width.px]="width"
     [style.height.px]="height" #elementRef4 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressImage($event,4)" [hidden]="imagediv4">
     <span #dragHandleCorner4 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle4, corn4]" cdkDrag
       (cdkDragMoved)="dragMove4(dragHandleCorner4, $event)"></span>
-    <span #dragHandleRight4 cdkDragLockAxis="x" class="dragHandle4 right" cdkDrag
+    <span #dragHandleRight4 cdkDragLockAxis="x" class="dragHandle right" cdkDrag
       (cdkDragMoved)="dragMove4(dragHandleRight4, $event)"></span>
-    <span #dragHandleBottom4 cdkDragLockAxis="y" class="dragHandle4 bottom" cdkDrag
+    <span #dragHandleBottom4 cdkDragLockAxis="y" class="dragHandle bottom" cdkDrag
       (cdkDragMoved)="dragMove4(dragHandleBottom4, $event)"></span>
   </div>
 
@@ -223,9 +165,9 @@
     [style.height.px]="height" #elementRef5 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressImage($event,5)" [hidden]="imagediv5">
     <span #dragHandleCorner5 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle5, corn5]" cdkDrag
       (cdkDragMoved)="dragMove5(dragHandleCorner5, $event)"></span>
-    <span #dragHandleRight5 cdkDragLockAxis="x" class="dragHandle5 right" cdkDrag
+    <span #dragHandleRight5 cdkDragLockAxis="x" class="dragHandle right" cdkDrag
       (cdkDragMoved)="dragMove5(dragHandleRight5, $event)"></span>
-    <span #dragHandleBottom5 cdkDragLockAxis="y" class="dragHandle5 bottom" cdkDrag
+    <span #dragHandleBottom5 cdkDragLockAxis="y" class="dragHandle bottom" cdkDrag
       (cdkDragMoved)="dragMove5(dragHandleBottom5, $event)"></span>
   </div>
 
@@ -233,9 +175,9 @@
     [style.height.px]="height" #elementRef6 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressImage($event,6)" [hidden]="imagediv6">
     <span #dragHandleCorner6 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle6, corn6]" cdkDrag
       (cdkDragMoved)="dragMove6(dragHandleCorner6, $event)"></span>
-    <span #dragHandleRight6 cdkDragLockAxis="x" class="dragHandle6 right" cdkDrag
+    <span #dragHandleRight6 cdkDragLockAxis="x" class="dragHandle right" cdkDrag
       (cdkDragMoved)="dragMove6(dragHandleRight6, $event)"></span>
-    <span #dragHandleBottom6 cdkDragLockAxis="y" class="dragHandle6 bottom" cdkDrag
+    <span #dragHandleBottom6 cdkDragLockAxis="y" class="dragHandle bottom" cdkDrag
       (cdkDragMoved)="dragMove6(dragHandleBottom6, $event)"></span>
   </div>
 
@@ -243,9 +185,9 @@
     [style.height.px]="height" #elementRef7 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressImage($event,7)" [hidden]="imagediv7">
     <span #dragHandleCorner7 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle7, corn7]" cdkDrag
       (cdkDragMoved)="dragMove7(dragHandleCorner7, $event)"></span>
-    <span #dragHandleRight7 cdkDragLockAxis="x" class="dragHandle7 right" cdkDrag
+    <span #dragHandleRight7 cdkDragLockAxis="x" class="dragHandle right" cdkDrag
       (cdkDragMoved)="dragMove7(dragHandleRight7, $event)"></span>
-    <span #dragHandleBottom7 cdkDragLockAxis="y" class="dragHandle7 bottom" cdkDrag
+    <span #dragHandleBottom7 cdkDragLockAxis="y" class="dragHandle bottom" cdkDrag
       (cdkDragMoved)="dragMove7(dragHandleBottom7, $event)"></span>
   </div>
 
@@ -282,9 +224,9 @@
     [style.height.px]="height" #elementRef9 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressSticker($event,9)" [hidden]="stickerdiv9">
     <span #dragHandleCorner9 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle9, corn9]" cdkDrag
       (cdkDragMoved)="dragMove9(dragHandleCorner9, $event)"></span>
-    <span #dragHandleRight9 cdkDragLockAxis="x" class="dragHandle9 right" cdkDrag
+    <span #dragHandleRight9 cdkDragLockAxis="x" class="dragHandle right" cdkDrag
       (cdkDragMoved)="dragMove9(dragHandleRight9, $event)"></span>
-    <span #dragHandleBottom9 cdkDragLockAxis="y" class="dragHandle9 bottom" cdkDrag
+    <span #dragHandleBottom9 cdkDragLockAxis="y" class="dragHandle bottom" cdkDrag
       (cdkDragMoved)="dragMove9(dragHandleBottom9, $event)"></span>
   </div>
 
@@ -292,9 +234,9 @@
     [style.height.px]="height" #elementRef10 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressSticker($event,10)" [hidden]="stickerdiv10">
     <span #dragHandleCorner10 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle10, corn10]" cdkDrag
       (cdkDragMoved)="dragMove10(dragHandleCorner10, $event)"></span>
-    <span #dragHandleRight10 cdkDragLockAxis="x" class="dragHandle10 right" cdkDrag
+    <span #dragHandleRight10 cdkDragLockAxis="x" class="dragHandle right" cdkDrag
       (cdkDragMoved)="dragMove10(dragHandleRight10, $event)"></span>
-    <span #dragHandleBottom10 cdkDragLockAxis="y" class="dragHandle10 bottom" cdkDrag
+    <span #dragHandleBottom10 cdkDragLockAxis="y" class="dragHandle bottom" cdkDrag
       (cdkDragMoved)="dragMove10(dragHandleBottom10, $event)"></span>
   </div>
 
@@ -302,9 +244,9 @@
     [style.height.px]="height" #elementRef11 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressSticker($event,11)" [hidden]="stickerdiv11">
     <span #dragHandleCorner11 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle11, corn11]" cdkDrag
       (cdkDragMoved)="dragMove11(dragHandleCorner11, $event)"></span>
-    <span #dragHandleRight11 cdkDragLockAxis="x" class="dragHandle11 right" cdkDrag
+    <span #dragHandleRight11 cdkDragLockAxis="x" class="dragHandle right" cdkDrag
       (cdkDragMoved)="dragMove11(dragHandleRight11, $event)"></span>
-    <span #dragHandleBottom11 cdkDragLockAxis="y" class="dragHandle11 bottom" cdkDrag
+    <span #dragHandleBottom11 cdkDragLockAxis="y" class="dragHandle bottom" cdkDrag
       (cdkDragMoved)="dragMove11(dragHandleBottom11, $event)"></span>
   </div>
 
@@ -312,9 +254,9 @@
     [style.height.px]="height" #elementRef12 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressSticker($event,12)" [hidden]="stickerdiv12">
     <span #dragHandleCorner12 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle12, corn12]" cdkDrag
       (cdkDragMoved)="dragMove12(dragHandleCorner12, $event)"></span>
-    <span #dragHandleRight12 cdkDragLockAxis="x" class="dragHandle12 right" cdkDrag
+    <span #dragHandleRight12 cdkDragLockAxis="x" class="dragHandle right" cdkDrag
       (cdkDragMoved)="dragMove12(dragHandleRight12, $event)"></span>
-    <span #dragHandleBottom12 cdkDragLockAxis="y" class="dragHandle12 bottom" cdkDrag
+    <span #dragHandleBottom12 cdkDragLockAxis="y" class="dragHandle bottom" cdkDrag
       (cdkDragMoved)="dragMove12(dragHandleBottom12, $event)"></span>
   </div>
 
@@ -322,9 +264,9 @@
     [style.height.px]="height" #elementRef13 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressSticker($event,13)" [hidden]="stickerdiv13">
     <span #dragHandleCorner13 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle13, corn13]" cdkDrag
       (cdkDragMoved)="dragMove13(dragHandleCorner13, $event)"></span>
-    <span #dragHandleRight13 cdkDragLockAxis="x" class="dragHandle13 right" cdkDrag
+    <span #dragHandleRight13 cdkDragLockAxis="x" class="dragHandle right" cdkDrag
       (cdkDragMoved)="dragMove13(dragHandleRight13, $event)"></span>
-    <span #dragHandleBottom13 cdkDragLockAxis="y" class="dragHandle13 bottom" cdkDrag
+    <span #dragHandleBottom13 cdkDragLockAxis="y" class="dragHandle bottom" cdkDrag
       (cdkDragMoved)="dragMove13(dragHandleBottom13, $event)"></span>
   </div>
 
@@ -332,9 +274,9 @@
     [style.height.px]="height" #elementRef14 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressSticker($event,14)" [hidden]="stickerdiv14">
     <span #dragHandleCorner14 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle14, corn14]" cdkDrag
       (cdkDragMoved)="dragMove14(dragHandleCorner14, $event)"></span>
-    <span #dragHandleRight14 cdkDragLockAxis="x" class="dragHandle14 right" cdkDrag
+    <span #dragHandleRight14 cdkDragLockAxis="x" class="dragHandle right" cdkDrag
       (cdkDragMoved)="dragMove14(dragHandleRight14, $event)"></span>
-    <span #dragHandleBottom14 cdkDragLockAxis="y" class="dragHandle14 bottom" cdkDrag
+    <span #dragHandleBottom14 cdkDragLockAxis="y" class="dragHandle bottom" cdkDrag
       (cdkDragMoved)="dragMove14(dragHandleBottom14, $event)"></span>
   </div>
 
@@ -342,9 +284,9 @@
     [style.height.px]="height" #elementRef15 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressSticker($event,15)" [hidden]="stickerdiv15">
     <span #dragHandleCorner15 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle15, corn15]" cdkDrag
       (cdkDragMoved)="dragMove15(dragHandleCorner15, $event)"></span>
-    <span #dragHandleRight15 cdkDragLockAxis="x" class="dragHandle15 right" cdkDrag
+    <span #dragHandleRight15 cdkDragLockAxis="x" class="dragHandle right" cdkDrag
       (cdkDragMoved)="dragMove15(dragHandleRight15, $event)"></span>
-    <span #dragHandleBottom15 cdkDragLockAxis="y" class="dragHandle15 bottom" cdkDrag
+    <span #dragHandleBottom15 cdkDragLockAxis="y" class="dragHandle bottom" cdkDrag
       (cdkDragMoved)="dragMove15(dragHandleBottom15, $event)"></span>
   </div>
 
@@ -352,9 +294,9 @@
     [style.height.px]="height" #elementRef16 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressSticker($event,16)" [hidden]="stickerdiv16">
     <span #dragHandleCorner16 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle16, corn16]" cdkDrag
       (cdkDragMoved)="dragMove16(dragHandleCorner16, $event)"></span>
-    <span #dragHandleRight16 cdkDragLockAxis="x" class="dragHandle16 right" cdkDrag
+    <span #dragHandleRight16 cdkDragLockAxis="x" class="dragHandle right" cdkDrag
       (cdkDragMoved)="dragMove16(dragHandleRight16, $event)"></span>
-    <span #dragHandleBottom16 cdkDragLockAxis="y" class="dragHandle16 bottom" cdkDrag
+    <span #dragHandleBottom16 cdkDragLockAxis="y" class="dragHandle bottom" cdkDrag
       (cdkDragMoved)="dragMove16(dragHandleBottom16, $event)"></span>
   </div>
 

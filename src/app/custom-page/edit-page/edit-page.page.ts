@@ -216,22 +216,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
     idName.style.top = ((deviceHeight - 150) - height) / 2  + 'px';
   }
 
-  createElement() {
-
-    // this.elementRef.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src="assets/images/abc.png"></ion-img>`);
-    // this.drHandle = 'dragHandle';
-    // this.corn = 'corner';
-
-    // this.inputText5.nativeElement.insertAdjacentHTML('beforeend', `<ion-item lines="none">
-    // <ion-textarea id="textarea5" autoGrow="true" placeholder="Enter more information here..."></ion-textarea>
-    // </ion-item>`);
-
-    // this.elementRef1.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src="assets/images/abc.png"></ion-img>`);
-    // this.drHandle1 = 'dragHandle1';
-    // this.corn1 = 'corner';
-
-  }
-
   changeOpacity(event: any) {
     this.storageService.getItemForImage().then(value => {
       console.log('opacity value', value);
@@ -280,39 +264,22 @@ export class EditPagePage implements OnInit, AfterViewInit {
   changeHeight(event: any) {
     this.storageService.getItemForTextArea().then(value => {
       switch (+value) {
-        case 8: document.getElementById('textarea8').rows = event.detail.value;
+        case 8: this.renderer.setProperty(this.inputText8.nativeElement.children[0], 'rows', event.detail.value);
                 break;
-        case 7: document.getElementById('textarea7').rows = event.detail.value;
+        case 7: this.renderer.setProperty(this.inputText7.nativeElement.children[0], 'rows', event.detail.value);
                 break;
-        case 6: document.getElementById('textarea6').rows = event.detail.value;
+        case 6: this.renderer.setProperty(this.inputText6.nativeElement.children[0], 'rows', event.detail.value);
                 break;
-        case 5: document.getElementById('textarea5').rows = event.detail.value;
+        case 5: this.renderer.setProperty(this.inputText5.nativeElement.children[0], 'rows', event.detail.value);
                 break;
-        case 4: document.getElementById('textarea4').rows = event.detail.value;
+        case 4: this.renderer.setProperty(this.inputText4.nativeElement.children[0], 'rows', event.detail.value);
                 break;
-        case 3: document.getElementById('textarea3').rows = event.detail.value;
+        case 3: this.renderer.setProperty(this.inputText3.nativeElement.children[0], 'rows', event.detail.value);
                 break;
-        case 2: document.getElementById('textarea2').rows = event.detail.value;
+        case 2: this.renderer.setProperty(this.inputText2.nativeElement.children[0], 'rows', event.detail.value);
                 break;
-        case 1: document.getElementById('textarea1').rows = event.detail.value;
+        case 1: this.renderer.setProperty(this.inputText1.nativeElement.children[0], 'rows', event.detail.value);
       }
-      // switch (+value) {
-      //   case 8: document.getElementById('textBackProp8').style.height = event.detail.value + '%';
-      //           break;
-      //   case 7: document.getElementById('textBackProp7').style.height = event.detail.value + '%';
-      //           break;
-      //   case 6: document.getElementById('textBackProp6').style.height = event.detail.value + '%';
-      //           break;
-      //   case 5: document.getElementById('textBackProp5').style.height = event.detail.value + '%';
-      //           break;
-      //   case 4: document.getElementById('textBackProp4').style.height = event.detail.value + '%';
-      //           break;
-      //   case 3: document.getElementById('textBackProp3').style.height = event.detail.value + '%';
-      //           break;
-      //   case 2: document.getElementById('textBackProp2').style.height = event.detail.value + '%';
-      //           break;
-      //   case 1: document.getElementById('textBackProp1').style.height = event.detail.value + '%';
-      // }
     });
   }
 
@@ -379,45 +346,44 @@ export class EditPagePage implements OnInit, AfterViewInit {
     if (count < 8) {
       switch (val) {
         case 8: this.textareadiv8 = false;
-                this.inputText8.nativeElement.insertAdjacentHTML('beforeend', `<ion-item lines="none">
-                <ion-textarea id="textarea8" autoGrow="true" placeholder="Enter text here..."></ion-textarea>
-                </ion-item>`);
+                this.inputText8.nativeElement.insertAdjacentHTML('beforeend', `
+                <ion-textarea id="textarea8" autoGrow="true" placeholder="Enter text here..." rows="1"></ion-textarea>
+                `);
                 break;
         case 7: this.textareadiv7 = false;
-                this.inputText7.nativeElement.insertAdjacentHTML('beforeend', `<ion-item lines="none">
-                <ion-textarea id="textarea7" autoGrow="true" placeholder="Enter text here..."></ion-textarea>
-                </ion-item>`);
+                this.inputText7.nativeElement.insertAdjacentHTML('beforeend', `
+                <ion-textarea id="textarea7" autoGrow="true" placeholder="Enter text here..." rows="1"></ion-textarea>
+                `);
                 break;
         case 6: this.textareadiv6 = false;
-                this.inputText6.nativeElement.insertAdjacentHTML('beforeend', `<ion-item lines="none">
-                <ion-textarea id="textarea6" autoGrow="true" placeholder="Enter text here..."></ion-textarea>
-                </ion-item>`);
+                this.inputText6.nativeElement.insertAdjacentHTML('beforeend', `
+                <ion-textarea id="textarea6" autoGrow="true" placeholder="Enter text here..." rows="1"></ion-textarea>
+                `);
                 break;
         case 5: this.textareadiv5 = false;
-                this.inputText5.nativeElement.insertAdjacentHTML('beforeend', `<ion-item lines="none">
-                <ion-textarea id="textarea5" autoGrow="true" placeholder="Enter text here..."></ion-textarea>
-                </ion-item>`);
+                this.inputText5.nativeElement.insertAdjacentHTML('beforeend', `
+                <ion-textarea id="textarea5" autoGrow="true" placeholder="Enter text here..." rows="1"></ion-textarea>
+                `);
                 break;
         case 4: this.textareadiv4 = false;
-                this.inputText4.nativeElement.insertAdjacentHTML('beforeend', `<ion-item lines="none">
-                <ion-textarea id="textarea4" autoGrow="true" placeholder="Enter text here..."></ion-textarea>
-                </ion-item>`);
+                this.inputText4.nativeElement.insertAdjacentHTML('beforeend', `
+                <ion-textarea id="textarea4" autoGrow="true" placeholder="Enter text here..." rows="1"></ion-textarea>
+                `);
                 break;
         case 3: this.textareadiv3 = false;
-                this.inputText3.nativeElement.insertAdjacentHTML('beforeend', `<ion-item lines="none">
-                <ion-textarea id="textarea3" autoGrow="true" placeholder="Enter text here..."></ion-textarea>
-                </ion-item>`);
+                this.inputText3.nativeElement.insertAdjacentHTML('beforeend', `
+                <ion-textarea id="textarea3" autoGrow="true" placeholder="Enter text here..." rows="1"></ion-textarea>
+                `);
                 break;
         case 2: this.textareadiv2 = false;
-                this.inputText2.nativeElement.insertAdjacentHTML('beforeend', `<ion-item lines="none">
-                <ion-textarea id="textarea2" autoGrow="true" placeholder="Enter text here..."></ion-textarea>
-                </ion-item>`);
+                this.inputText2.nativeElement.insertAdjacentHTML('beforeend', `
+                <ion-textarea id="textarea2" autoGrow="true" placeholder="Enter text here..." rows="1"></ion-textarea>
+                `);
                 break;
         case 1: this.textareadiv1 = false;
                 this.inputText1.nativeElement.insertAdjacentHTML('beforeend', `
                 <ion-textarea id="textarea1" autoGrow="true" placeholder="Enter text here..." rows="1"></ion-textarea>
                 `);
-                console.log('aman');
                 break;
         // case 1: this.textareadiv1 = false;
         //         this.inputText1.nativeElement.insertAdjacentHTML('beforeend', `<ion-item lines="none">
@@ -461,13 +427,13 @@ export class EditPagePage implements OnInit, AfterViewInit {
     this.storageService.getItemForTextArea().then(value => {
       let childElements;
       this.showTextToolbar = false;
+      this.showToolbar = true;
       switch (+value) {
         case 8: childElements = this.inputText8.nativeElement.children;
                 if (childElements[0]) {
                   this.renderer.removeChild(this.inputText8.nativeElement, childElements[0]);
                   this.textareadiv8 = true;
                   this.storageService.removeItemForTextArea();
-                  this.showToolbar = true;
                 }
                 break;
         case 7: childElements = this.inputText7.nativeElement.children;
@@ -475,7 +441,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.renderer.removeChild(this.inputText7.nativeElement, childElements[0]);
                   this.textareadiv7 = true;
                   this.storageService.removeItemForTextArea();
-                  this.showToolbar = true;
                 }
                 break;
         case 6: childElements = this.inputText6.nativeElement.children;
@@ -483,7 +448,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.renderer.removeChild(this.inputText6.nativeElement, childElements[0]);
                   this.textareadiv6 = true;
                   this.storageService.removeItemForTextArea();
-                  this.showToolbar = true;
                 }
                 break;
         case 5: childElements = this.inputText5.nativeElement.children;
@@ -491,7 +455,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.renderer.removeChild(this.inputText5.nativeElement, childElements[0]);
                   this.textareadiv5 = true;
                   this.storageService.removeItemForTextArea();
-                  this.showToolbar = true;
                 }
                 break;
         case 4: childElements = this.inputText4.nativeElement.children;
@@ -499,7 +462,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.renderer.removeChild(this.inputText4.nativeElement, childElements[0]);
                   this.textareadiv4 = true;
                   this.storageService.removeItemForTextArea();
-                  this.showToolbar = true;
                 }
                 break;
         case 3: childElements = this.inputText3.nativeElement.children;
@@ -507,7 +469,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.renderer.removeChild(this.inputText3.nativeElement, childElements[0]);
                   this.textareadiv3 = true;
                   this.storageService.removeItemForTextArea();
-                  this.showToolbar = true;
                 }
                 break;
         case 2: childElements = this.inputText2.nativeElement.children;
@@ -515,7 +476,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.renderer.removeChild(this.inputText2.nativeElement, childElements[0]);
                   this.textareadiv2 = false;
                   this.storageService.removeItemForTextArea();
-                  this.showToolbar = true;
                 }
                 break;
         case 1: childElements = this.inputText1.nativeElement.children;
@@ -523,7 +483,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.renderer.removeChild(this.inputText1.nativeElement, childElements[0]);
                   this.textareadiv1 = true;
                   this.storageService.removeItemForTextArea();
-                  this.showToolbar = true;
                 }
                 break;
       }
@@ -534,6 +493,8 @@ export class EditPagePage implements OnInit, AfterViewInit {
     this.storageService.getItemForImage().then(value => {
       console.log("delete Image", value);
       let childElements;
+      this.showImageToolBar = false;
+      this.showToolbar = true;
       switch (+value) {
         case 7: childElements = this.elementRef7.nativeElement.children;
                 if (childElements[3]) {
@@ -542,7 +503,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.corn7 = 'test2';
                   this.imagediv7 = true;
                   this.storageService.removeItemForImage();
-                  this.showImageToolBar = false;
                 }
                 break;
         case 6: childElements = this.elementRef6.nativeElement.children;
@@ -552,7 +512,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.corn6 = 'test2';
                   this.imagediv6 = true;
                   this.storageService.removeItemForImage();
-                  this.showImageToolBar = false;
                 }
                 break;
         case 5: childElements = this.elementRef5.nativeElement.children;
@@ -562,7 +521,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.corn5 = 'test2';
                   this.imagediv5 = true;
                   this.storageService.removeItemForImage();
-                  this.showImageToolBar = false;
                 }
                 break;
         case 4: childElements = this.elementRef4.nativeElement.children;
@@ -572,7 +530,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.corn4 = 'test2';
                   this.imagediv4 = true;
                   this.storageService.removeItemForImage();
-                  this.showImageToolBar = false;
                 }
                 break;
         case 3: childElements = this.elementRef3.nativeElement.children;
@@ -582,7 +539,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.corn3 = 'test2';
                   this.imagediv3 = true;
                   this.storageService.removeItemForImage();
-                  this.showImageToolBar = false;
                 }
                 break;
         case 2: childElements = this.elementRef2.nativeElement.children;
@@ -592,7 +548,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.corn2 = 'test2';
                   this.imagediv2 = true;
                   this.storageService.removeItemForImage();
-                  this.showImageToolBar = false;
                 }
                 break;
         case 1: childElements = this.elementRef1.nativeElement.children;
@@ -602,7 +557,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.corn1 = 'test2';
                   this.imagediv1 = true;
                   this.storageService.removeItemForImage();
-                  this.showImageToolBar = false;
                 }
                 break;
         case 0: childElements = this.elementRef.nativeElement.children;
@@ -612,7 +566,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.corn = 'test2';
                   this.imagediv = true;
                   this.storageService.removeItemForImage();
-                  this.showImageToolBar = false;
                 }
                 break;
       }
@@ -624,6 +577,8 @@ export class EditPagePage implements OnInit, AfterViewInit {
     this.storageService.getItemForSticker().then(value => {
       console.log(value);
       let childElements;
+      this.showStickerToolBar = false;
+      this.showToolbar = true;
       switch (+value) {
         case 16: childElements = this.elementRef16.nativeElement.children;
                  if (childElements[3]) {
@@ -632,7 +587,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.corn16 = 'test2';
                   this.stickerdiv16 = true;
                   this.storageService.removeItemForSticker();
-                  this.showStickerToolBar = false;
                  }
                  break;
         case 15: childElements = this.elementRef15.nativeElement.children;
@@ -642,7 +596,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.corn15 = 'test2';
                   this.stickerdiv15 = true;
                   this.storageService.removeItemForSticker();
-                  this.showStickerToolBar = false;
                  }
                  break;
         case 14: childElements = this.elementRef14.nativeElement.children;
@@ -652,7 +605,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.corn14 = 'test2';
                   this.stickerdiv14 = true;
                   this.storageService.removeItemForSticker();
-                  this.showStickerToolBar = false;
                  }
                  break;
         case 13: childElements = this.elementRef13.nativeElement.children;
@@ -662,7 +614,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.corn13 = 'test2';
                   this.stickerdiv13 = true;
                   this.storageService.removeItemForSticker();
-                  this.showStickerToolBar = false;
                  }
                  break;
         case 12: childElements = this.elementRef12.nativeElement.children;
@@ -672,7 +623,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.corn12 = 'test2';
                   this.stickerdiv12 = true;
                   this.storageService.removeItemForSticker();
-                  this.showStickerToolBar = false;
                  }
                  break;
         case 11: childElements = this.elementRef11.nativeElement.children;
@@ -682,7 +632,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.corn11 = 'test2';
                   this.stickerdiv11 = true;
                   this.storageService.removeItemForSticker();
-                  this.showStickerToolBar = false;
                  }
                  break;
         case 10: childElements = this.elementRef10.nativeElement.children;
@@ -692,7 +641,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.corn10 = 'test2';
                   this.stickerdiv10 = true;
                   this.storageService.removeItemForSticker();
-                  this.showStickerToolBar = false;
                  }
                  break;
         case 9: childElements = this.elementRef9.nativeElement.children;
@@ -702,7 +650,6 @@ export class EditPagePage implements OnInit, AfterViewInit {
                   this.corn9 = 'test2';
                   this.stickerdiv9 = true;
                   this.storageService.removeItemForSticker();
-                  this.showStickerToolBar = false;
                 }
                 break;
       }
@@ -755,8 +702,7 @@ export class EditPagePage implements OnInit, AfterViewInit {
           case 1: document.getElementById('textarea1').style.fontSize = this.textAreaSize + 'px';
         }
       });
-    }
-    else{
+    } else {
       this.disabledBtn = true;
     }
   }
@@ -1556,4 +1502,3 @@ export class EditPagePage implements OnInit, AfterViewInit {
     });
   }
 }
-
