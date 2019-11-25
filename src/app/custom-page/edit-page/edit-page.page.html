@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Edit-Page</ion-title>
+  <ion-toolbar color="dark">
+    <ion-title>Custom Editor</ion-title>
     <ion-buttons slot="secondary">
       <ion-button slot="end">
         <ion-icon slot="icon-only" name="more"></ion-icon>
@@ -11,7 +11,7 @@
 <ion-content>
 
 </ion-content>
-<ion-tabs *ngIf="showToolbar; else option">
+<!-- <ion-tabs *ngIf="showToolbar; else option">
   <ion-tab-bar slot="bottom">
     <ion-row>
       <ion-col size-sm="4">
@@ -32,9 +32,30 @@
       </ion-col>
     </ion-row>
   </ion-tab-bar>
-</ion-tabs>
+</ion-tabs> -->
 
-<ion-tabs *ngIf="showImageToolBar">
+<ion-footer *ngIf="showToolbar" color="primary">
+    <ion-row>
+        <ion-col size-sm="4">
+          <app-image-picker (imagePicked)=choosenImage($event)>
+          </app-image-picker>
+        </ion-col>
+        <ion-col size-sm="4">
+          <ion-tab-button (click) = selectSticker()>
+            <ion-label>STICKER</ion-label>
+            <ion-icon name="happy"></ion-icon>
+          </ion-tab-button>
+        </ion-col>
+        <ion-col size-sm="4">
+          <ion-tab-button (click)="onAddText()">
+            <ion-label>TEXT</ion-label>
+            <ion-icon name="list-box"></ion-icon>
+          </ion-tab-button>
+        </ion-col>
+      </ion-row>
+</ion-footer>
+
+<!-- <ion-tabs *ngIf="showImageToolBar">
     <ion-tab-bar slot="bottom">
       <ion-row>
         <ion-col size-sm="4">
@@ -49,9 +70,45 @@
         </ion-col>
       </ion-row>
     </ion-tab-bar>
-</ion-tabs>
+</ion-tabs> -->
 
-<ion-tabs *ngIf="showStickerToolBar">
+<ion-footer *ngIf="showImageToolBar">
+  <div>
+      <ion-title>Adjust Image Opacity</ion-title>
+  </div>
+  <ion-range min="0" max="1" step="0.1" (ionChange)="changeOpacity($event)">
+    <ion-icon size="small" slot="start" name="sunny"></ion-icon>
+    <ion-icon slot="end" name="sunny"></ion-icon>
+  </ion-range>  
+  <ion-row>
+    <ion-col offset="4" size="2">
+      <ion-button (click)="backToToolbar()" color="dark" size="small">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-col>
+    <ion-col size="2">
+      <ion-button (click)="deleteSelectedImage()" color="dark" fill="outline" size="small">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>
+
+<ion-footer *ngIf="showStickerToolBar">
+    <ion-row>
+      <ion-col offset="4" size="2">
+        <ion-button (click)="backToToolbar()" color="dark" size="small">
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button (click)="deleteSelectedSticker()" color="dark" fill="outline" size="small">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+</ion-footer>
+<!-- <ion-tabs *ngIf="showStickerToolBar">
   <ion-tab-bar slot="bottom">
     <ion-row>
       <ion-col size-sm="4">
@@ -66,54 +123,57 @@
       </ion-col>
     </ion-row>
   </ion-tab-bar>
-</ion-tabs>
+</ion-tabs> -->
 
-<ng-template #option>
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
+<!-- <ng-template #option> -->
+    <ion-footer *ngIf="showTextToolbar">
+      <!-- <ion-label padding="10" class="ion-text-center">Adjust Textbox Size</ion-label> -->
+      <div>
+          <ion-title>Adjust Textbox Width</ion-title>
+      </div>
+      <ion-range min="10" max="100" step="5" (ionChange)="changeWidth($event)" value="50">
+        <ion-icon size="small" slot="start" name="remove-circle"></ion-icon>
+        <ion-icon slot="end" name="add-circle"></ion-icon>
+      </ion-range>
+      <div>
+          <ion-title>Adjust Textbox Height</ion-title>
+      </div>
+      <ion-range min="1" max="10" step="1" (ionChange)="changeHeight($event)" value="1">
+        <ion-icon size="small" slot="start" name="remove-circle"></ion-icon>
+        <ion-icon slot="end" name="add-circle"></ion-icon>
+      </ion-range>
+      <ion-grid>
       <ion-row>
-        <ion-col size-sm="2">
-          <ion-button (click)="deleteSelectedTextArea()" color="danger" fill="outline">
-            <ion-icon slot="icon-only" name="trash"></ion-icon>
-          </ion-button>
-        </ion-col>
-        <ion-col size-sm="4">
-          <ion-button (click)="decrementTextSize()"> 
-            <ion-icon slot="icon-only" name="remove-circle"></ion-icon>
-          </ion-button>
-        </ion-col>
-        <ion-col size-sm="2">
-          <p>{{ textAreaSize }} px</p>
-        </ion-col>
-        <ion-col size-sm="2">
-          <ion-button (click)="incrementTextSize()">
-            <ion-icon slot="icon-only" name="add-circle"></ion-icon>
-          </ion-button>
-        </ion-col>
-        <ion-col size-sm="2">
-          <ion-button (click)="checkmarkTextAreaSizeView()" color="success" fill="outline">
-            <ion-icon slot="icon-only" name="checkmark"></ion-icon>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-tab-bar>
-  </ion-tabs>
-</ng-template>
+          <ion-col size-sm="2">
+            <ion-button (click)="deleteSelectedTextArea()" color="dark" fill="outline" shape="round" class="custom-rounded-btn" size="small">
+              <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size-sm="2">
+            <ion-button (click)="decrementTextSize()" [disabled]="disabledBtn" shape="round" size="small" color="dark"> 
+              <ion-icon slot="icon-only" name="remove-circle"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size-sm="4" align-self-center>
+            <ion-text class="ion-text-center">{{ textAreaSize }} px</ion-text>
+          </ion-col>
+          <ion-col size-sm="2">
+            <ion-button (click)="incrementTextSize()" shape="round" size="small" color="dark">
+              <ion-icon slot="icon-only" name="add-circle"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size-sm="2">
+            <ion-button (click)="checkmarkTextAreaSizeView()" color="dark" fill="outline" shape="round" size="small">
+              <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-footer>
+<!-- </ng-template> -->
 <!-- <ion-button (click)="createElement()" expand="full">Testing</ion-button> -->
-<ion-range min="10" max="100" step="5" (ionChange)="changeWidth($event)">
-    <ion-icon size="small" slot="start" name="sunny"></ion-icon>
-    <ion-icon slot="end" name="sunny"></ion-icon>
-</ion-range>
-<ion-range min="10" max="100" step="5" (ionChange)="changeHeight($event)">
-    <ion-icon size="small" slot="start" name="sunny"></ion-icon>
-    <ion-icon slot="end" name="sunny"></ion-icon>
-</ion-range>
-<ion-range min="0" max="1" step="0.1" (ionChange)="changeOpacity($event)">
-    <ion-icon size="small" slot="start" name="sunny"></ion-icon>
-    <ion-icon slot="end" name="sunny"></ion-icon>
-</ion-range>
 <div id="example-boundary">
-  <div #resizeBox class="container image" style="position: relative;float: left;" [style.width.px]="width"
+  <div #resizeBox class="container image" style="position: absolute;float: left;" [style.width.px]="width"
     [style.height.px]="height" #elementRef cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressImage($event,0)" [hidden]="imagediv">
     <span #dragHandleCorner [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle, corn]" cdkDrag
       (cdkDragMoved)="dragMove(dragHandleCorner, $event)"></span>
@@ -122,7 +182,7 @@
     <span #dragHandleBottom cdkDragLockAxis="y" class="dragHandle bottom" cdkDrag
       (cdkDragMoved)="dragMove(dragHandleBottom, $event)"></span>
   </div>
-  <div #resizeBox1 class="container image1" style="position: relative;float: left;" [style.width.px]="width"
+  <div #resizeBox1 class="container image1" style="position: absolute;float: left;" [style.width.px]="width"
     [style.height.px]="height" #elementRef1 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressImage($event,1)" [hidden]="imagediv1">
     <span #dragHandleCorner1 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle1, corn1]" cdkDrag
       (cdkDragMoved)="dragMove1(dragHandleCorner1, $event)"></span>
@@ -131,7 +191,7 @@
     <span #dragHandleBottom1 cdkDragLockAxis="y" class="dragHandle1 bottom" cdkDrag
       (cdkDragMoved)="dragMove1(dragHandleBottom1, $event)"></span>
   </div>
-  <div #resizeBox2 class="container image2" style="position: relative;float: left;" [style.width.px]="width"
+  <div #resizeBox2 class="container image2" style="position: absolute;float: left;" [style.width.px]="width"
     [style.height.px]="height" #elementRef2 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressImage($event,2)" [hidden]="imagediv2">
     <span #dragHandleCorner2 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle2, corn2]" cdkDrag
       (cdkDragMoved)="dragMove2(dragHandleCorner2, $event)"></span>
@@ -140,7 +200,7 @@
     <span #dragHandleBottom2 cdkDragLockAxis="y" class="dragHandle2 bottom" cdkDrag
       (cdkDragMoved)="dragMove2(dragHandleBottom2, $event)"></span>
   </div>
-  <div #resizeBox3 class="container image3" style="position: relative;float: left;" [style.width.px]="width"
+  <div #resizeBox3 class="container image3" style="position: absolute;float: left;" [style.width.px]="width"
     [style.height.px]="height" #elementRef3 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressImage($event,3)" [hidden]="imagediv3">
     <span #dragHandleCorner3 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle3, corn3]" cdkDrag
       (cdkDragMoved)="dragMove3(dragHandleCorner3, $event)"></span>
@@ -149,7 +209,7 @@
     <span #dragHandleBottom3 cdkDragLockAxis="y" class="dragHandle3 bottom" cdkDrag
       (cdkDragMoved)="dragMove3(dragHandleBottom3, $event)"></span>
   </div>
-  <div #resizeBox4 class="container image4" style="position: relative;float: left;" [style.width.px]="width"
+  <div #resizeBox4 class="container image4" style="position: absolute;float: left;" [style.width.px]="width"
     [style.height.px]="height" #elementRef4 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressImage($event,4)" [hidden]="imagediv4">
     <span #dragHandleCorner4 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle4, corn4]" cdkDrag
       (cdkDragMoved)="dragMove4(dragHandleCorner4, $event)"></span>
@@ -159,7 +219,7 @@
       (cdkDragMoved)="dragMove4(dragHandleBottom4, $event)"></span>
   </div>
 
-  <div #resizeBox5 class="container image5" style="position: relative;float: left;" [style.width.px]="width"
+  <div #resizeBox5 class="container image5" style="position: absolute;float: left;" [style.width.px]="width"
     [style.height.px]="height" #elementRef5 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressImage($event,5)" [hidden]="imagediv5">
     <span #dragHandleCorner5 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle5, corn5]" cdkDrag
       (cdkDragMoved)="dragMove5(dragHandleCorner5, $event)"></span>
@@ -169,7 +229,7 @@
       (cdkDragMoved)="dragMove5(dragHandleBottom5, $event)"></span>
   </div>
 
-  <div #resizeBox6 class="container image6" style="position: relative;float: left;" [style.width.px]="width"
+  <div #resizeBox6 class="container image6" style="position: absolute;float: left;" [style.width.px]="width"
     [style.height.px]="height" #elementRef6 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressImage($event,6)" [hidden]="imagediv6">
     <span #dragHandleCorner6 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle6, corn6]" cdkDrag
       (cdkDragMoved)="dragMove6(dragHandleCorner6, $event)"></span>
@@ -179,7 +239,7 @@
       (cdkDragMoved)="dragMove6(dragHandleBottom6, $event)"></span>
   </div>
 
-  <div #resizeBox7 class="container image7" style="position: relative;float: left;" [style.width.px]="width"
+  <div #resizeBox7 class="container image7" style="position: absolute;float: left;" [style.width.px]="width"
     [style.height.px]="height" #elementRef7 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressImage($event,7)" [hidden]="imagediv7">
     <span #dragHandleCorner7 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle7, corn7]" cdkDrag
       (cdkDragMoved)="dragMove7(dragHandleCorner7, $event)"></span>
@@ -191,34 +251,34 @@
 
   <!-- Dynamically adding text Area div's -->
 
-  <div class="textArea" id="textBackProp8" cdkDrag cdkDragBoundary="#example-boundary" #inputText8 (press)="onLongPressTextArea($event,8)" [hidden]="textareadiv8">
+  <div class="textArea" style="position: absolute;" id="textBackProp8" cdkDrag cdkDragBoundary="#example-boundary" #inputText8 (press)="onLongPressTextArea($event,8)" [hidden]="textareadiv8">
     
   </div>
-  <div class="textArea" id="textBackProp7" cdkDrag cdkDragBoundary="#example-boundary" #inputText7 (press)="onLongPressTextArea($event,7)" [hidden]="textareadiv7">
+  <div class="textArea" style="position: absolute;" id="textBackProp7" cdkDrag cdkDragBoundary="#example-boundary" #inputText7 (press)="onLongPressTextArea($event,7)" [hidden]="textareadiv7">
       
   </div>
-  <div class="textArea" id="textBackProp6" cdkDrag cdkDragBoundary="#example-boundary" #inputText6 (press)="onLongPressTextArea($event,6)" [hidden]="textareadiv6">
+  <div class="textArea" style="position: absolute;" id="textBackProp6" cdkDrag cdkDragBoundary="#example-boundary" #inputText6 (press)="onLongPressTextArea($event,6)" [hidden]="textareadiv6">
       
   </div>
-  <div class="textArea" id="textBackProp5" cdkDrag cdkDragBoundary="#example-boundary" #inputText5 (press)="onLongPressTextArea($event,5)" [hidden]="textareadiv5">
+  <div class="textArea" style="position: absolute;" id="textBackProp5" cdkDrag cdkDragBoundary="#example-boundary" #inputText5 (press)="onLongPressTextArea($event,5)" [hidden]="textareadiv5">
     
   </div>
-  <div class="textArea" id="textBackProp4" cdkDrag cdkDragBoundary="#example-boundary" #inputText4 (press)="onLongPressTextArea($event,4)" [hidden]="textareadiv4">
+  <div class="textArea" style="position: absolute;" id="textBackProp4" cdkDrag cdkDragBoundary="#example-boundary" #inputText4 (press)="onLongPressTextArea($event,4)" [hidden]="textareadiv4">
     
   </div>
-  <div class="textArea" id="textBackProp3" cdkDrag cdkDragBoundary="#example-boundary" #inputText3 (press)="onLongPressTextArea($event,3)" [hidden]="textareadiv3">
+  <div class="textArea" style="position: absolute;" id="textBackProp3" cdkDrag cdkDragBoundary="#example-boundary" #inputText3 (press)="onLongPressTextArea($event,3)" [hidden]="textareadiv3">
     
   </div>
-  <div class="textArea" id="textBackProp2" cdkDrag cdkDragBoundary="#example-boundary" #inputText2 (press)="onLongPressTextArea($event,2)" [hidden]="textareadiv2">
+  <div class="textArea" style="position: absolute;" id="textBackProp2" cdkDrag cdkDragBoundary="#example-boundary" #inputText2 (press)="onLongPressTextArea($event,2)" [hidden]="textareadiv2">
     
   </div>
-  <div class="textArea" id="textBackProp1" cdkDrag cdkDragBoundary="#example-boundary" #inputText1 (press)="onLongPressTextArea($event,1)" [hidden]="textareadiv1">
+  <div class="textArea" style="position: absolute;" id="textBackProp1" cdkDrag cdkDragBoundary="#example-boundary" #inputText1 (press)="onLongPressTextArea($event,1)" [hidden]="textareadiv1">
     
   </div>
 
   <!-- Dynamically added sticker -->
 
-  <div #resizeBox9 class="container" style="position: relative;float: left;" [style.width.px]="width"
+  <div #resizeBox9 class="container" style="position: absolute; float: left;" [style.width.px]="width"
     [style.height.px]="height" #elementRef9 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressSticker($event,9)" [hidden]="stickerdiv9">
     <span #dragHandleCorner9 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle9, corn9]" cdkDrag
       (cdkDragMoved)="dragMove9(dragHandleCorner9, $event)"></span>
@@ -228,7 +288,7 @@
       (cdkDragMoved)="dragMove9(dragHandleBottom9, $event)"></span>
   </div>
 
-  <div #resizeBox10 class="container" style="position: relative;float: left;" [style.width.px]="width"
+  <div #resizeBox10 class="container" style="position: absolute; float: left;" [style.width.px]="width"
     [style.height.px]="height" #elementRef10 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressSticker($event,10)" [hidden]="stickerdiv10">
     <span #dragHandleCorner10 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle10, corn10]" cdkDrag
       (cdkDragMoved)="dragMove10(dragHandleCorner10, $event)"></span>
@@ -238,7 +298,7 @@
       (cdkDragMoved)="dragMove10(dragHandleBottom10, $event)"></span>
   </div>
 
-  <div #resizeBox11 class="container" style="position: relative;float: left;" [style.width.px]="width"
+  <div #resizeBox11 class="container" style="position: absolute; float: left;" [style.width.px]="width"
     [style.height.px]="height" #elementRef11 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressSticker($event,11)" [hidden]="stickerdiv11">
     <span #dragHandleCorner11 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle11, corn11]" cdkDrag
       (cdkDragMoved)="dragMove11(dragHandleCorner11, $event)"></span>
@@ -248,7 +308,7 @@
       (cdkDragMoved)="dragMove11(dragHandleBottom11, $event)"></span>
   </div>
 
-  <div #resizeBox12 class="container" style="position: relative;float: left;" [style.width.px]="width"
+  <div #resizeBox12 class="container" style="position: absolute; float: left;" [style.width.px]="width"
     [style.height.px]="height" #elementRef12 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressSticker($event,12)" [hidden]="stickerdiv12">
     <span #dragHandleCorner12 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle12, corn12]" cdkDrag
       (cdkDragMoved)="dragMove12(dragHandleCorner12, $event)"></span>
@@ -258,7 +318,7 @@
       (cdkDragMoved)="dragMove12(dragHandleBottom12, $event)"></span>
   </div>
 
-  <div #resizeBox13 class="container" style="position: relative;float: left;" [style.width.px]="width"
+  <div #resizeBox13 class="container" style="position: absolute; float: left;" [style.width.px]="width"
     [style.height.px]="height" #elementRef13 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressSticker($event,13)" [hidden]="stickerdiv13">
     <span #dragHandleCorner13 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle13, corn13]" cdkDrag
       (cdkDragMoved)="dragMove13(dragHandleCorner13, $event)"></span>
@@ -268,7 +328,7 @@
       (cdkDragMoved)="dragMove13(dragHandleBottom13, $event)"></span>
   </div>
 
-  <div #resizeBox14 class="container" style="position: relative;float: left;" [style.width.px]="width"
+  <div #resizeBox14 class="container" style="position: absolute; float: left;" [style.width.px]="width"
     [style.height.px]="height" #elementRef14 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressSticker($event,14)" [hidden]="stickerdiv14">
     <span #dragHandleCorner14 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle14, corn14]" cdkDrag
       (cdkDragMoved)="dragMove14(dragHandleCorner14, $event)"></span>
@@ -278,7 +338,7 @@
       (cdkDragMoved)="dragMove14(dragHandleBottom14, $event)"></span>
   </div>
 
-  <div #resizeBox15 class="container" style="position: relative;float: left;" [style.width.px]="width"
+  <div #resizeBox15 class="container" style="position: absolute; float: left;" [style.width.px]="width"
     [style.height.px]="height" #elementRef15 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressSticker($event,15)" [hidden]="stickerdiv15">
     <span #dragHandleCorner15 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle15, corn15]" cdkDrag
       (cdkDragMoved)="dragMove15(dragHandleCorner15, $event)"></span>
@@ -288,7 +348,7 @@
       (cdkDragMoved)="dragMove15(dragHandleBottom15, $event)"></span>
   </div>
 
-  <div #resizeBox16 class="container" style="position: relative;float: left;" [style.width.px]="width"
+  <div #resizeBox16 class="container" style="position: absolute; float: left;" [style.width.px]="width"
     [style.height.px]="height" #elementRef16 cdkDrag cdkDragBoundary="#example-boundary" (press)="onLongPressSticker($event,16)" [hidden]="stickerdiv16">
     <span #dragHandleCorner16 [cdkDragLockAxis]="lockAxis" [ngClass]="[drHandle16, corn16]" cdkDrag
       (cdkDragMoved)="dragMove16(dragHandleCorner16, $event)"></span>
@@ -299,4 +359,21 @@
   </div>
 
 </div>
+
+<!-- <ion-range min="10" max="100" step="5" (ionChange)="changeWidth($event)">
+  <ion-icon size="small" slot="start" name="sunny"></ion-icon>
+  <ion-icon slot="end" name="sunny"></ion-icon>
+</ion-range> -->
+
+
+<!-- <ion-range min="10" max="100" step="5" (ionChange)="changeHeight($event)">
+  <ion-icon size="small" slot="start" name="sunny"></ion-icon>
+  <ion-icon slot="end" name="sunny"></ion-icon>
+</ion-range> -->
+
+<!-- For Image Opacity -->
+<!-- <ion-range min="0" max="1" step="0.1" (ionChange)="changeOpacity($event)">
+  <ion-icon size="small" slot="start" name="sunny"></ion-icon>
+  <ion-icon slot="end" name="sunny"></ion-icon>
+</ion-range> -->
 
