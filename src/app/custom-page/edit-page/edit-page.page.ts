@@ -6,8 +6,6 @@ import { ImageModalComponent } from 'src/app/shared/image-modal/image-modal.comp
 import { StorageService } from 'src/app/shared/storage.service';
 import { StickerModalComponent } from 'src/app/shared/sticker-modal/sticker-modal.component';
 
-
-
 @Component({
   selector: 'app-edit-page',
   templateUrl: './edit-page.page.html',
@@ -214,6 +212,7 @@ export class EditPagePage implements OnInit, AfterViewInit {
     idName.style.width = width  + 'px';
     idName.style.height = height  + 'px';
     idName.style.top = ((deviceHeight - 150) - height) / 2  + 'px';
+
   }
 
   changeOpacity(event: any) {
@@ -395,6 +394,14 @@ export class EditPagePage implements OnInit, AfterViewInit {
     } else {
       // Show alert over here maximum allocation reached
     }
+  }
+
+  removeToolbarOnKeyboardUp() {
+    this.showToolbar = false;
+  }
+
+  showToolbarOnKeyboardDown() {
+    this.showToolbar = true;
   }
 
   onLongPressTextArea(event: any, textAreaNo: number) {
@@ -1204,6 +1211,8 @@ export class EditPagePage implements OnInit, AfterViewInit {
       .then(result => {
         if (result.role === 'confirm') {
           this.onAddImage(result);
+        } else {
+
         }
       });
   }
