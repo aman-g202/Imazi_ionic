@@ -57,4 +57,17 @@ export class StorageService {
     async removeItemForSticker() {
         await Storage.remove({ key: 'StickerNumber' });
     }
+
+    async setDataToStorage(key, value) {
+        await Storage.set({
+            key,
+            value
+        });
+    }
+
+    async getDataFromStorgae(key) {
+        const item = await Storage.get({ key });
+        // console.log('Got item: ', item.value);
+        return item.value;
+    }
 }

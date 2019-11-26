@@ -1,13 +1,13 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>
       Ionic Facebook
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content>
-  <div class="ion-padding" *ngIf="isLoggedIn === true">
+<ion-content justify-content-center align-items-center>
+  <!-- <div class="ion-padding" *ngIf="isLoggedIn === true">
     <ion-card>
       <ion-card-header>
         <ion-card-subtitle>Hi, {{users.name}}</ion-card-subtitle>
@@ -25,9 +25,21 @@
     </ion-card>
   </div>
   <div class="ion-padding" *ngIf="isLoggedIn === false">
-    <ion-button expand="full" color="primary" (click)="fbLogin()">
-      Login with
-      <ion-icon name="logo-facebook"></ion-icon>
-    </ion-button>
-  </div>
+  
+  </div> -->
+
+  <ion-img margin  src = "../../assets/images/avenger.jpg"></ion-img>
+
+  <ion-button margin expand="full" color="primary" (click)="fbLogin()">
+    Login with
+    <ion-icon name="logo-facebook"></ion-icon>
+  </ion-button>
+  <ion-button margin expand="full" color="danger" (click)="googleLogin()">
+    Login with
+    <ion-icon name="logo-google"></ion-icon>
+  </ion-button>
 </ion-content>
+
+<ion-footer text-center>
+  <ion-label>Made in <ion-icon color = "primary" name="heart-half"></ion-icon> with India</ion-label> 
+</ion-footer>

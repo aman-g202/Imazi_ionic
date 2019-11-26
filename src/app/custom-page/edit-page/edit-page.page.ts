@@ -280,21 +280,21 @@ export class EditPagePage implements OnInit, AfterViewInit {
   changeHeight(event: any) {
     this.storageService.getItemForTextArea().then(value => {
       switch (+value) {
-        case 8: document.getElementById('textarea8').rows = event.detail.value;
-                break;
-        case 7: document.getElementById('textarea7').rows = event.detail.value;
-                break;
-        case 6: document.getElementById('textarea6').rows = event.detail.value;
-                break;
-        case 5: document.getElementById('textarea5').rows = event.detail.value;
-                break;
-        case 4: document.getElementById('textarea4').rows = event.detail.value;
-                break;
-        case 3: document.getElementById('textarea3').rows = event.detail.value;
-                break;
-        case 2: document.getElementById('textarea2').rows = event.detail.value;
-                break;
-        case 1: document.getElementById('textarea1').rows = event.detail.value;
+        // case 8: document.getElementById('textarea8').rows = event.detail.value;
+        //         break;
+        // case 7: document.getElementById('textarea7').rows = event.detail.value;
+        //         break;
+        // case 6: document.getElementById('textarea6').rows = event.detail.value;
+        //         break;
+        // case 5: document.getElementById('textarea5').rows = event.detail.value;
+        //         break;
+        // case 4: document.getElementById('textarea4').rows = event.detail.value;
+        //         break;
+        // case 3: document.getElementById('textarea3').rows = event.detail.value;
+        //         break;
+        // case 2: document.getElementById('textarea2').rows = event.detail.value;
+        //         break;
+        // case 1: document.getElementById('textarea1').rows = event.detail.value;
       }
       // switch (+value) {
       //   case 8: document.getElementById('textBackProp8').style.height = event.detail.value + '%';
