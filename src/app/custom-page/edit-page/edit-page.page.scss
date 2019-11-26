@@ -25,27 +25,23 @@
   background: yellow;
 }
 
-.dragHandle, .dragHandle1, .dragHandle2, .dragHandle3, .dragHandle4, .dragHandle5, .dragHandle6, .dragHandle7, 
-.dragHandle9, .dragHandle10, .dragHandle11, .dragHandle12, .dragHandle13, .dragHandle14, .dragHandle15, .dragHandle16 {
+.dragHandle {
   position: absolute;
   background-color: green;
 }
 
-.dragHandle.corner, .dragHandle1.corner, .dragHandle2.corner, .dragHandle3.corner, .dragHandle4.corner, .dragHandle5.corner, .dragHandle6.corner, .dragHandle7.corner,
-.dragHandl9.corner, .dragHandle10.corner, .dragHandle11.corner, .dragHandle12.corner, .dragHandle13.corner, .dragHandle14.corner, .dragHandle15.corner, .dragHandle16.corner {
+.dragHandle.corner {
   width: 6px;
   height: 6px;
   cursor: nwse-resize;
 }
 
-.dragHandle.right, .dragHandle1.right, .dragHandle2.right, .dragHandle3.right, .dragHandle4.right, .dragHandle5.right, .dragHandle6.right, .dragHandle7.right,
-.dragHandle9.right, .dragHandle10.right, .dragHandle11.right, .dragHandle12.right, .dragHandle13.right, .dragHandle14.right, .dragHandle15.right, .dragHandle16.right {
+.dragHandle.right {
   height: 100%;
   cursor: ew-resize;
 }
 
-.dragHandle.bottom, .dragHandle1.bottom, .dragHandle2.bottom, .dragHandle3.bottom, .dragHandle4.bottom, .dragHandle5.bottom, .dragHandle6.bottom, .dragHandle7.bottom,
-.dragHandle9.bottom, .dragHandle10.bottom, .dragHandle11.bottom, .dragHandle12.bottom, .dragHandle13.bottom, .dragHandle14.bottom, .dragHandle15.bottom, .dragHandle16.bottom {
+.dragHandle.bottom {
   width: 100%;
   cursor: ns-resize;
 }
@@ -97,6 +93,7 @@ ion-footer{
     font-size: 12px;
   }
 }
+
 ion-range{
   --knob-background: #000000;
   --knob-box-shadow: 0 0 10px rgba(0,0,0,0.2);
