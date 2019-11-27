@@ -2,6 +2,9 @@
   <ion-toolbar color="dark">
     <ion-title>Custom Editor</ion-title>
     <ion-buttons slot="secondary">
+      <ion-button slot="end" (click)="openFontOptions()" *ngIf="showTextToolbar">
+        Fonts
+      </ion-button>
       <ion-button slot="end">
         <ion-icon slot="icon-only" name="more"></ion-icon>
       </ion-button>
@@ -302,3 +305,71 @@
 
 </div>
 
+<ion-button (click)="saveImage()">Save</ion-button>
+
+<ion-item [hidden]="true">
+  <ion-label>Select Fonts</ion-label>
+  <ion-select value="AbrilFatface-Regular" okText="Okay" cancelText="Dismiss" #selectFont (ionChange)="changeFontStyle($event)">
+        <ion-select-option value="AbrilFatface-Regular">AbrilFatface-Regular</ion-select-option>
+        <ion-select-option value="Alatsi-Regular">Alatsi-Regular</ion-select-option>
+        <ion-select-option value="CaveatBold">CaveatBold</ion-select-option>
+        <ion-select-option value="GloriaHallelujah-Regular">GloriaHallelujah-Regular</ion-select-option>
+        <ion-select-option value="Hind-Bold">Hind-Bold</ion-select-option>
+        <ion-select-option value="Hind-Light">Hind-Light</ion-select-option>
+        <ion-select-option value="Hind-Medium">Hind-Medium</ion-select-option>
+        <ion-select-option value="Hind-Regular">Hind-Regular</ion-select-option>
+        <ion-select-option value="Hind-SemiBold">Hind-SemiBold</ion-select-option>
+        <ion-select-option value="Kalam-Light">Kalam-Light</ion-select-option>
+        <ion-select-option value="Kalam-Regular">Kalam-Regular</ion-select-option>
+        <ion-select-option value="KaushanScript-Regular">KaushanScript-Regular</ion-select-option>
+        <ion-select-option value="Khand-Bold">Khand-Bold</ion-select-option>
+        <ion-select-option value="Khand-Light">Khand-Light</ion-select-option>
+        <ion-select-option value="Khand-Medium">Khand-Medium</ion-select-option>
+        <ion-select-option value="Martel-Black">Martel-Black</ion-select-option>
+        <ion-select-option value="Martel-Bold">Martel-Bold</ion-select-option>
+        <ion-select-option value="Martel-Regular">Martel-Regular</ion-select-option>
+        <ion-select-option value="Montserrat-Black">Montserrat-Black</ion-select-option>
+        <ion-select-option value="Montserrat-Bold">Montserrat-Bold</ion-select-option>
+        <ion-select-option value="Montserrat-Italic">Montserrat-Italic</ion-select-option>
+        <ion-select-option value="Montserrat-Medium">Montserrat-Medium</ion-select-option>
+        <ion-select-option value="Montserrat-MediumItalic">Montserrat-MediumItalic</ion-select-option>
+        <ion-select-option value="Mukta-Bold">Mukta-Bold</ion-select-option>
+        <ion-select-option value="Mukta-ExtraBold">Mukta-ExtraBold</ion-select-option>
+        <ion-select-option value="Mukta-Medium">Mukta-Medium</ion-select-option>
+        <ion-select-option value="Mukta-Regular">Mukta-Regular</ion-select-option>
+        <ion-select-option value="Nunito-Black">Nunito-Black</ion-select-option>
+        <ion-select-option value="Nunito-Bold">Nunito-Bold</ion-select-option>
+        <ion-select-option value="Nunito-BoldItalic">Nunito-BoldItalic</ion-select-option>
+        <ion-select-option value="Nunito-ExtraLightItalic">Nunito-ExtraLightItalic</ion-select-option>
+        <ion-select-option value="Nunito-LightItalic">Nunito-LightItalic</ion-select-option>
+        <ion-select-option value="Nunito-SemiBold">Nunito-SemiBold</ion-select-option>
+        <ion-select-option value="Nunito-SemiBoldItalic">Nunito-SemiBoldItalic</ion-select-option>
+        <ion-select-option value="PermanentMarker-Regular">PermanentMarker-Regular</ion-select-option>
+        <ion-select-option value="Poppins-Bold">Poppins-Bold</ion-select-option>
+        <ion-select-option value="Poppins-BoldItalic">Poppins-BoldItalic</ion-select-option>
+        <ion-select-option value="Poppins-Italic">Poppins-Italic</ion-select-option>
+        <ion-select-option value="Poppins-Light">Poppins-Light</ion-select-option>
+        <ion-select-option value="Poppins-Medium">Poppins-Medium</ion-select-option>
+        <ion-select-option value="Poppins-Thin">Poppins-Thin</ion-select-option>
+        <ion-select-option value="PTSerif-Bold">PTSerif-Bold</ion-select-option>
+        <ion-select-option value="PTSerif-BoldItalic">PTSerif-BoldItalic</ion-select-option>
+        <ion-select-option value="PTSerif-Italic">PTSerif-Italic</ion-select-option>
+        <ion-select-option value="PTSerif-Regular">PTSerif-Regular</ion-select-option>
+        <ion-select-option value="Rajdhani-Medium">Rajdhani-Medium</ion-select-option>
+        <ion-select-option value="Rajdhani-Regular">Rajdhani-Regular</ion-select-option>
+        <ion-select-option value="Rajdhani-SemiBold">Rajdhani-SemiBold</ion-select-option>
+        <ion-select-option value="Roboto-Bold">Roboto-Bold</ion-select-option>
+        <ion-select-option value="Roboto-Italic">Roboto-Italic</ion-select-option>
+        <ion-select-option value="Roboto-LightItalic">Roboto-LightItalic</ion-select-option>
+        <ion-select-option value="Roboto-Medium">Roboto-Medium</ion-select-option>
+        <ion-select-option value="Roboto-MediumItalic">Roboto-MediumItalic</ion-select-option>
+        <ion-select-option value="Sacramento-Regular">Sacramento-Regular</ion-select-option>
+        <ion-select-option value="Sarala-Bold">Sarala-Bold</ion-select-option>
+        <ion-select-option value="Sarala-Regular">Sarala-Regular</ion-select-option>
+        <ion-select-option value="Teko-Light">Teko-Light</ion-select-option>
+        <ion-select-option value="Teko-Medium">Teko-Medium</ion-select-option>
+        <ion-select-option value="Teko-Regular">Teko-Regular</ion-select-option>
+        <ion-select-option value="Teko-SemiBold">Teko-SemiBold</ion-select-option>
+
+      </ion-select>
+</ion-item>
