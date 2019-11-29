@@ -75,3 +75,304 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 }
+
+@font-face {
+  font-family: 'CaveatBold';
+  src: url('../assets/fonts/Caveat-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'AbrilFatface-Regular';
+  src: url('../assets/fonts/AbrilFatface-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Alatsi-Regular';
+  src: url('../assets/fonts/Alatsi-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'GloriaHallelujah-Regular';
+  src: url('../assets/fonts/GloriaHallelujah-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Hind-Bold';
+  src: url('../assets/fonts/Hind-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Hind-Light';
+  src: url('../assets/fonts/Hind-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Hind-Medium';
+  src: url('../assets/fonts/Hind-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Hind-Regular';
+  src: url('../assets/fonts/Hind-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Hind-SemiBold';
+  src: url('../assets/fonts/Hind-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'Kalam-Light';
+  src: url('../assets/fonts/Kalam-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Kalam-Regular';
+  src: url('../assets/fonts/Kalam-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'KaushanScript-Regular';
+  src: url('../assets/fonts/KaushanScript-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Khand-Bold';
+  src: url('../assets/fonts/Khand-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Khand-Light';
+  src: url('../assets/fonts/Khand-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Khand-Medium';
+  src: url('../assets/fonts/Khand-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Martel-Black';
+  src: url('../assets/fonts/Martel-Black.ttf');
+}
+
+@font-face {
+  font-family: 'Martel-Bold';
+  src: url('../assets/fonts/Martel-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Martel-Regular';
+  src: url('../assets/fonts/Martel-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat-Black';
+  src: url('../assets/fonts/Montserrat-Black.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat-Bold';
+  src: url('../assets/fonts/Montserrat-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat-Italic';
+  src: url('../assets/fonts/Montserrat-Italic.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat-Medium';
+  src: url('../assets/fonts/Montserrat-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat-MediumItalic';
+  src: url('../assets/fonts/Montserrat-MediumItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Mukta-Bold';
+  src: url('../assets/fonts/Mukta-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Mukta-ExtraBold';
+  src: url('../assets/fonts/Mukta-ExtraBold.ttf');
+}
+
+@font-face {
+  font-family: 'Mukta-Medium';
+  src: url('../assets/fonts/Mukta-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Mukta-Regular';
+  src: url('../assets/fonts/Mukta-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Nunito-Black';
+  src: url('../assets/fonts/Nunito-Black.ttf');
+}
+
+@font-face {
+  font-family: 'Nunito-Bold';
+  src: url('../assets/fonts/Nunito-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Nunito-BoldItalic';
+  src: url('../assets/fonts/Nunito-BoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Nunito-ExtraLightItalic';
+  src: url('../assets/fonts/Nunito-ExtraLightItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Nunito-LightItalic';
+  src: url('../assets/fonts/Nunito-LightItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Nunito-SemiBold';
+  src: url('../assets/fonts/Nunito-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'Nunito-SemiBoldItalic';
+  src: url('../assets/fonts/Nunito-SemiBoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'PermanentMarker-Regular';
+  src: url('../assets/fonts/PermanentMarker-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins-Bold';
+  src: url('../assets/fonts/Poppins-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins-BoldItalic';
+  src: url('../assets/fonts/Poppins-BoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins-Italic';
+  src: url('../assets/fonts/Poppins-Italic.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins-Light';
+  src: url('../assets/fonts/Poppins-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins-Medium';
+  src: url('../assets/fonts/Poppins-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins-Thin';
+  src: url('../assets/fonts/Poppins-Thin.ttf');
+}
+
+@font-face {
+  font-family: 'PTSerif-Bold';
+  src: url('../assets/fonts/PTSerif-Bold.ttf');
+}
+
+
+@font-face {
+  font-family: 'PTSerif-BoldItalic';
+  src: url('../assets/fonts/PTSerif-BoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'PTSerif-Italic';
+  src: url('../assets/fonts/PTSerif-Italic.ttf');
+}
+
+@font-face {
+  font-family: 'PTSerif-Regular';
+  src: url('../assets/fonts/PTSerif-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Rajdhani-Medium';
+  src: url('../assets/fonts/Rajdhani-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Rajdhani-Regular';
+  src: url('../assets/fonts/Rajdhani-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Rajdhani-SemiBold';
+  src: url('../assets/fonts/Rajdhani-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: url('../assets/fonts/Roboto-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto-Italic';
+  src: url('../assets/fonts/Roboto-Italic.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto-LightItalic';
+  src: url('../assets/fonts/Roboto-LightItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto-Medium';
+  src: url('../assets/fonts/Roboto-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto-MediumItalic';
+  src: url('../assets/fonts/Roboto-MediumItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Sacramento-Regular';
+  src: url('../assets/fonts/Sacramento-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Sarala-Bold';
+  src: url('../assets/fonts/Sarala-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Sarala-Regular';
+  src: url('../assets/fonts/Sarala-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Teko-Light';
+  src: url('../assets/fonts/Teko-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Teko-Medium';
+  src: url('../assets/fonts/Teko-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Teko-Regular';
+  src: url('../assets/fonts/Teko-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Teko-SemiBold';
+  src: url('../assets/fonts/Teko-SemiBold.ttf');
+}

@@ -1,11 +1,24 @@
-.scalex {
-    width: 160px;
-}
-
-.scaley {
-    width: 160px;
-}
-
 .movement{
     margin-left: 13px;
+}
+
+.textAlignmentCenter {
+    text-align: center;
+}
+
+ion-footer{
+    // background-color: gray;
+    border-top-right-radius: 65px;
+    border-top-left-radius: 65px;
+    box-shadow: 0 5px 13px rgba(0,0,0,0.8);
+    border: none !important;
+    padding-top: 10px;
+
+    &::before{
+        background: transparent !important;
+    }
+}
+
+ion-content {
+    --overflow: hidden;
 }

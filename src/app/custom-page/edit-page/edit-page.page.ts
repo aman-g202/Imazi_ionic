@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation, ElementRef, AfterViewInit, NgZone, Renderer2 } from '@angular/core';
 import { CdkDragMove } from '@angular/cdk/drag-drop';
-import { ModalController, Platform } from '@ionic/angular';
+import { ModalController, Platform, IonSelect } from '@ionic/angular';
 
 import { ImageModalComponent } from 'src/app/shared/image-modal/image-modal.component';
 import { StorageService } from 'src/app/shared/storage.service';
 import { StickerModalComponent } from 'src/app/shared/sticker-modal/sticker-modal.component';
 
-
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-edit-page',
@@ -125,6 +125,8 @@ export class EditPagePage implements OnInit, AfterViewInit {
   @ViewChild('inputText2', { static: false }) inputText2: ElementRef;
   @ViewChild('inputText1', { static: false }) inputText1: ElementRef;
 
+  @ViewChild('selectFont', { static: false }) selectFont: IonSelect;
+
   drHandle: string = 'test1';
   corn: string = 'test2';
   drHandle1: string = 'test1';
@@ -194,7 +196,7 @@ export class EditPagePage implements OnInit, AfterViewInit {
   showStickerToolBar: boolean = false;
   showTextToolbar: boolean = false;
   textAreaSize: number = 10;
-
+  
   disabledBtn: boolean = true;
 
   constructor(private ngZone: NgZone,
@@ -214,6 +216,7 @@ export class EditPagePage implements OnInit, AfterViewInit {
     idName.style.width = width  + 'px';
     idName.style.height = height  + 'px';
     idName.style.top = ((deviceHeight - 150) - height) / 2  + 'px';
+
   }
 
   changeOpacity(event: any) {
@@ -395,6 +398,14 @@ export class EditPagePage implements OnInit, AfterViewInit {
     } else {
       // Show alert over here maximum allocation reached
     }
+  }
+
+  removeToolbarOnKeyboardUp() {
+    this.showToolbar = false;
+  }
+
+  showToolbarOnKeyboardDown() {
+    this.showToolbar = true;
   }
 
   onLongPressTextArea(event: any, textAreaNo: number) {
@@ -1204,6 +1215,8 @@ export class EditPagePage implements OnInit, AfterViewInit {
       .then(result => {
         if (result.role === 'confirm') {
           this.onAddImage(result);
+        } else {
+
         }
       });
   }
@@ -1500,5 +1513,40 @@ export class EditPagePage implements OnInit, AfterViewInit {
                 this.showToolbar = true;
       }
     });
+  }
+
+  openFontOptions() {
+    this.selectFont.open();
+  }
+
+  changeFontStyle(event: any) {
+    this.storageService.getItemForTextArea().then(value => {
+      switch (+value) {
+        case 8: this.renderer.setStyle(this.inputText8.nativeElement.children[0], 'font-family', `${event.detail.value}`);
+                break;
+        case 7: this.renderer.setStyle(this.inputText7.nativeElement.children[0], 'font-family', `${event.detail.value}`);
+                break;
+        case 6: this.renderer.setStyle(this.inputText6.nativeElement.children[0], 'font-family', `${event.detail.value}`);
+                break;
+        case 5: this.renderer.setStyle(this.inputText5.nativeElement.children[0], 'font-family', `${event.detail.value}`);
+                break;
+        case 4: this.renderer.setStyle(this.inputText4.nativeElement.children[0], 'font-family', `${event.detail.value}`);
+                break;
+        case 3: this.renderer.setStyle(this.inputText3.nativeElement.children[0], 'font-family', `${event.detail.value}`);
+                break;
+        case 2: this.renderer.setStyle(this.inputText2.nativeElement.children[0], 'font-family', `${event.detail.value}`);
+                break;
+        case 1: this.renderer.setStyle(this.inputText1.nativeElement.children[0], 'font-family', `${event.detail.value}`);
+      }
+    });
+  }
+
+  saveImage() {
+    // const element = document.getElementById('my-canvas');
+    // html2canvas(element, { allowTaint : true }).then((canvas) =>
+    // {
+    //   canvas.getContext('2d');
+    //   const image = canvas.toDataURL('image/jpeg', 1.0);
+    // });
   }
 }

@@ -25,7 +25,7 @@ export class ImageModalComponent implements OnInit {
       // autoCrop: true,
       // movable: true,
       zoomable: true,
-      scalable: true,
+      scalable: true
       // autoCropArea: 0.8
     };
   }
@@ -74,12 +74,15 @@ export class ImageModalComponent implements OnInit {
   save() {
     const croppedImgB64String: string = this.angularCropper.cropper.getCroppedCanvas().toDataURL('image/jpeg', (100 / 100));
     this.croppedImage = croppedImgB64String;
+    this.modalCtrl.dismiss({
+      croppedImage: this.croppedImage
+    }, 'confirm');
   }
 
   closeModal() {
     this.modalCtrl.dismiss({
-      croppedImage: this.croppedImage
-    }, 'confirm');
+      croppedImage: ''
+    }, 'cancel');
   }
 
 }
