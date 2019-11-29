@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from '../shared/storage.service';
 import { environment } from 'src/environments/environment.prod';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,9 @@ import { environment } from 'src/environments/environment.prod';
 export class HomePage implements OnInit {
 
   constructor(
-    private storageService: StorageService
+    private storageService: StorageService,
+    public loadingController: LoadingController,
+
   ) {}
 
   user:any;
@@ -24,9 +27,13 @@ export class HomePage implements OnInit {
     this.fetchData();
   }
 
+  ionViewWillEnter() {
+    this.fetchData();
+  }
+
   async fetchData() {
-    const result = await this.storageService.getDataFromStorgae(environment.userData);
-    this.user = JSON.parse(result);
+    const result = await this.storageService.getDataFromStorage(environment.userData);
+    this.user = await JSON.parse(result);
   }
 
   logout() {

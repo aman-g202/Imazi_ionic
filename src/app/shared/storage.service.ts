@@ -65,7 +65,7 @@ export class StorageService {
         });
     }
 
-    async getDataFromStorgae(key) {
+    async getDataFromStorage(key) {
         const item = await Storage.get({ key });
         // console.log('Got item: ', item.value);
         return item.value;

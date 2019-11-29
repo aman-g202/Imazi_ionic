@@ -6,30 +6,12 @@
   </ion-toolbar>
 </ion-header> -->
 
-<ion-content justify-content-center align-items-center>
-  <!-- <div class="ion-padding" *ngIf="isLoggedIn === true">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-subtitle>Hi, {{users.name}}</ion-card-subtitle>
-        <ion-card-title>{{users.email}}</ion-card-title>
-      </ion-card-header>
-      <img src="{{users.picture.data.url}}" width="100" alt="{{users.name}}" />
-      <ion-card-content>
-        <p>
-          <ion-button expand="full" color="secondary" (click)="logout()">
-            Logout
-            <ion-icon name="log-out"></ion-icon>
-          </ion-button>
-        </p>
-      </ion-card-content>
-    </ion-card>
-  </div>
-  <div class="ion-padding" *ngIf="isLoggedIn === false">
-  
-  </div> -->
-
-  <ion-img margin  src = "../../assets/images/avenger.jpg"></ion-img>
-
+<ion-content>
+  <ion-img class = "logoImg" text-center margin  src = "../../assets/images/logo.png"></ion-img>
+  <ion-item  margin>
+      <ion-label position="floating">Enter your number here...</ion-label>
+      <ion-input [(ngModel)] = "mobile" text-center></ion-input>
+    </ion-item>
   <ion-button margin expand="full" color="primary" (click)="fbLogin()">
     Login with
     <ion-icon name="logo-facebook"></ion-icon>
@@ -41,5 +23,5 @@
 </ion-content>
 
 <ion-footer text-center>
-  <ion-label>Made in <ion-icon color = "primary" name="heart-half"></ion-icon> with India</ion-label> 
+  <ion-label>Made with <ion-icon color = "warning" name="heart-half"></ion-icon> in India</ion-label> 
 </ion-footer>

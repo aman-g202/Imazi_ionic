@@ -27,10 +27,10 @@
   <ion-card margin padding *ngIf="user">
     <ion-row>
       <ion-col size="3">
-        <ion-img src ="{{user.picture.data.url}}"></ion-img>
+        <img src ="{{user.picture.data.url}}"/>
       </ion-col>
-      <ion-col align-self-center size = "9">
-        <ion-text> {{user.email}} </ion-text>
+      <ion-col text-center align-self-center size = "9">
+        <ion-text bold> {{user.email}} </ion-text>
         <br>
         <ion-text>{{user.name}}</ion-text>
       </ion-col>
@@ -40,22 +40,28 @@
   <ion-grid>
     <ion-row >
       <ion-col size ="6">
-        <ion-card text-center class="homeOptions" padding>
-          <ion-text>Create Page</ion-text>
+        <ion-card  text-center class="homeOptions" padding>
+          <img src= "../../assets/images/page.png"/>
+          <ion-text>
+            <strong>Create Page</strong>
+          </ion-text>
         </ion-card>
       </ion-col>
       <ion-col size ="6">
           <ion-card [routerLink]="['/select-template']" routerLinkActive="router-link-active"  text-center class="homeOptions" padding>
-            <ion-text>Templates</ion-text>
+            <img src= "../../assets/images/template.png"/>
+            <ion-text>
+              <strong>Templates</strong>
+            </ion-text>
           </ion-card>
         </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-row class = "margin dailySlider" margin>
+  <ion-row class = "dailySlider" margin>
     <ion-slides pager="true" [options]="slideOpts">
         <ion-slide>
-          <ion-img src = "../../assets/images/avenger.jpg"></ion-img>
+          <img src = "../../assets/images/avenger.jpg"/>
         </ion-slide>
         <ion-slide>
           <h1>Slide 2</h1>
