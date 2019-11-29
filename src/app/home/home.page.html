@@ -1,15 +1,84 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>
       Ionic Blank
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <ion-button [routerLink]="['/login']" routerLinkActive="router-link-active" >Test</ion-button>
-    <p>If you get lost, the <a target="_blank" rel="noopener" [routerLink]="['/login']" routerLinkActive="router-link-active" >docs</a> will be your guide.</p>
-  </div>
+  <!-- <ion-card *ngIf="user">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+            <ion-img ></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+    <ion-item class="profile-item">
+      <div class="profile-picture big-profile-picture">
+      </div>
+      <h2 class="profile-name dark"></h2>
+      <div class="profile-info">{{user.email}}</div>
+    </ion-item> -->
+  <!-- </ion-card> -->
+
+  <ion-card margin padding *ngIf="user">
+    <ion-row>
+      <ion-col size="3">
+        <img src ="{{user.picture.data.url}}"/>
+      </ion-col>
+      <ion-col text-center align-self-center size = "9">
+        <ion-text bold> {{user.email}} </ion-text>
+        <br>
+        <ion-text>{{user.name}}</ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row >
+      <ion-col size ="6">
+        <ion-card  text-center class="homeOptions" padding>
+          <img src= "../../assets/images/page.png"/>
+          <ion-text>
+            <strong>Create Page</strong>
+          </ion-text>
+        </ion-card>
+      </ion-col>
+      <ion-col size ="6">
+          <ion-card [routerLink]="['/select-template']" routerLinkActive="router-link-active"  text-center class="homeOptions" padding>
+            <img src= "../../assets/images/template.png"/>
+            <ion-text>
+              <strong>Templates</strong>
+            </ion-text>
+          </ion-card>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-row class = "dailySlider" margin>
+    <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide>
+          <img src = "../../assets/images/avenger.jpg"/>
+        </ion-slide>
+        <ion-slide>
+          <h1>Slide 2</h1>
+        </ion-slide>
+        <ion-slide>
+          <h1>Slide 3</h1>
+        </ion-slide>
+      </ion-slides>
+  </ion-row>
 </ion-content>
+
+<ion-footer>
+  <ion-row size = "3">
+    <ion-col size ="12">
+      <ion-card padding>
+        <ion-text> Banner will be here</ion-text>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-footer>

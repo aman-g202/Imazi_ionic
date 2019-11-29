@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  base_url: 'http://imazi.technomize.com/'
+  base_url: 'http://imazi.technomize.com/',
+  userData: 'userData'
 };
