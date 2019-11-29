@@ -1,12 +1,17 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation, ElementRef, AfterViewInit, NgZone, Renderer2 } from '@angular/core';
 import { CdkDragMove } from '@angular/cdk/drag-drop';
-import { ModalController, Platform, IonSelect } from '@ionic/angular';
+import { ModalController, Platform, IonSelect, LoadingController } from '@ionic/angular';
 
 import { ImageModalComponent } from 'src/app/shared/image-modal/image-modal.component';
 import { StorageService } from 'src/app/shared/storage.service';
 import { StickerModalComponent } from 'src/app/shared/sticker-modal/sticker-modal.component';
 
-import html2canvas from 'html2canvas';
+// import domtoimage from 'dom-to-image';
+import htmlToImage from 'html-to-image';
+
+import { Plugins, FilesystemDirectory, FilesystemEncoding, Capacitor } from '@capacitor/core';
+
+const { Filesystem } = Plugins;
 
 @Component({
   selector: 'app-edit-page',
@@ -127,6 +132,8 @@ export class EditPagePage implements OnInit, AfterViewInit {
 
   @ViewChild('selectFont', { static: false }) selectFont: IonSelect;
 
+  @ViewChild('exampleBoundary', { static: false }) exampleBoundary: ElementRef;
+
   drHandle: string = 'test1';
   corn: string = 'test2';
   drHandle1: string = 'test1';
@@ -196,7 +203,8 @@ export class EditPagePage implements OnInit, AfterViewInit {
   showStickerToolBar: boolean = false;
   showTextToolbar: boolean = false;
   textAreaSize: number = 10;
-  
+  topHeight: string;
+
   disabledBtn: boolean = true;
 
   constructor(private ngZone: NgZone,
@@ -204,7 +212,8 @@ export class EditPagePage implements OnInit, AfterViewInit {
               private storageService: StorageService,
               private renderer: Renderer2,
               private el: ElementRef,
-              private platform: Platform) {
+              private platform: Platform,
+              private loadingCtrl: LoadingController) {
 
   }
 
@@ -215,7 +224,9 @@ export class EditPagePage implements OnInit, AfterViewInit {
     const deviceHeight = this.platform.height();
     idName.style.width = width  + 'px';
     idName.style.height = height  + 'px';
-    idName.style.top = ((deviceHeight - 150) - height) / 2  + 'px';
+    this.topHeight = ((deviceHeight - 150) - height) / 2  + 'px';
+    idName.style.top = this.topHeight;
+    // idName.style.top = '0px';
 
   }
 
@@ -1287,49 +1298,49 @@ export class EditPagePage implements OnInit, AfterViewInit {
       switch (val) {
         case 7: this.imagediv7 = false;
                 // tslint:disable-next-line: max-line-length
-                this.elementRef7.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.croppedImage} id="image7"></ion-img>`);
+                this.elementRef7.nativeElement.insertAdjacentHTML('beforeend', `<img src="${result.data.croppedImage}" id="image7"/>`);
                 this.drHandle7 = 'dragHandle';
                 this.corn7 = 'corner';
                 break;
         case 6: this.imagediv6 = false;
                 // tslint:disable-next-line: max-line-length
-                this.elementRef6.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.croppedImage} id="image6"></ion-img>`);
+                this.elementRef6.nativeElement.insertAdjacentHTML('beforeend', `<img src="${result.data.croppedImage}" id="image6"/>`);
                 this.drHandle6 = 'dragHandle';
                 this.corn6 = 'corner';
                 break;
         case 5: this.imagediv5 = false;
                 // tslint:disable-next-line: max-line-length
-                this.elementRef5.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.croppedImage} id="image5"></ion-img>`);
+                this.elementRef5.nativeElement.insertAdjacentHTML('beforeend', `<img src="${result.data.croppedImage}" id="image5"/>`);
                 this.drHandle5 = 'dragHandle';
                 this.corn5 = 'corner';
                 break;
         case 4: this.imagediv4 = false;
                 // tslint:disable-next-line: max-line-length
-                this.elementRef4.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.croppedImage} id="image4"></ion-img>`);
+                this.elementRef4.nativeElement.insertAdjacentHTML('beforeend', `<img src="${result.data.croppedImage}" id="image4"/>`);
                 this.drHandle4 = 'dragHandle';
                 this.corn4 = 'corner';
                 break;
         case 3: this.imagediv3 = false;
                 // tslint:disable-next-line: max-line-length
-                this.elementRef3.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.croppedImage} id="image3"></ion-img>`);
+                this.elementRef3.nativeElement.insertAdjacentHTML('beforeend', `<img src="${result.data.croppedImage}" id="image3"/>`);
                 this.drHandle3 = 'dragHandle';
                 this.corn3 = 'corner';
                 break;
         case 2: this.imagediv2 = false;
                 // tslint:disable-next-line: max-line-length
-                this.elementRef2.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.croppedImage} id="image2"></ion-img>`);
+                this.elementRef2.nativeElement.insertAdjacentHTML('beforeend', `<img src="${result.data.croppedImage}" id="image2"/>`);
                 this.drHandle2 = 'dragHandle';
                 this.corn2 = 'corner';
                 break;
         case 1: this.imagediv1 = false;
                 // tslint:disable-next-line: max-line-length
-                this.elementRef1.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.croppedImage} id="image1"></ion-img>`);
+                this.elementRef1.nativeElement.insertAdjacentHTML('beforeend', `<img src="${result.data.croppedImage}" id="image1"/>`);
                 this.drHandle1 = 'dragHandle';
                 this.corn1 = 'corner';
                 break;
         case 0: this.imagediv = false;
                 // tslint:disable-next-line: max-line-length
-                this.elementRef.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.croppedImage} id="image"></ion-img>`);
+                this.elementRef.nativeElement.insertAdjacentHTML('beforeend', `<img src="${result.data.croppedImage}" id="image"/>`);
                 this.drHandle = 'dragHandle';
                 this.corn = 'corner';
                 break;
@@ -1419,49 +1430,49 @@ export class EditPagePage implements OnInit, AfterViewInit {
       switch (val) {
         case 16: this.stickerdiv16 = false;
                  // tslint:disable-next-line: max-line-length
-                 this.elementRef16.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.stickerUrl}></ion-img>`);
+                 this.elementRef16.nativeElement.insertAdjacentHTML('beforeend', `<img src="${result.data.stickerUrl}"/>`);
                  this.drHandle16 = 'dragHandle';
                  this.corn16 = 'corner';
                  break;
         case 15: this.stickerdiv15 = false;
                  // tslint:disable-next-line: max-line-length
-                 this.elementRef15.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.stickerUrl}></ion-img>`);
+                 this.elementRef15.nativeElement.insertAdjacentHTML('beforeend', `<img src="${result.data.stickerUrl}"/>`);
                  this.drHandle15 = 'dragHandle';
                  this.corn15 = 'corner';
                  break;
         case 14: this.stickerdiv14 = false;
                  // tslint:disable-next-line: max-line-length
-                 this.elementRef14.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.stickerUrl}></ion-img>`);
+                 this.elementRef14.nativeElement.insertAdjacentHTML('beforeend', `<img src="${result.data.stickerUrl}"/>`);
                  this.drHandle14 = 'dragHandle';
                  this.corn14 = 'corner';
                  break;
         case 13: this.stickerdiv13 = false;
                  // tslint:disable-next-line: max-line-length
-                 this.elementRef13.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.stickerUrl}></ion-img>`);
+                 this.elementRef13.nativeElement.insertAdjacentHTML('beforeend', `<img src="${result.data.stickerUrl}"/>`);
                  this.drHandle13 = 'dragHandle';
                  this.corn13 = 'corner';
                  break;
         case 12: this.stickerdiv12 = false;
                  // tslint:disable-next-line: max-line-length
-                 this.elementRef12.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.stickerUrl}></ion-img>`);
+                 this.elementRef12.nativeElement.insertAdjacentHTML('beforeend', `<img src="${result.data.stickerUrl}"/>`);
                  this.drHandle12 = 'dragHandle';
                  this.corn12 = 'corner';
                  break;
         case 11: this.stickerdiv11 = false;
                  // tslint:disable-next-line: max-line-length
-                 this.elementRef11.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.stickerUrl}></ion-img>`);
+                 this.elementRef11.nativeElement.insertAdjacentHTML('beforeend', `<img src="${result.data.stickerUrl}"/>`);
                  this.drHandle11 = 'dragHandle';
                  this.corn11 = 'corner';
                  break;
         case 10: this.stickerdiv10 = false;
                  // tslint:disable-next-line: max-line-length
-                 this.elementRef10.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.stickerUrl}></ion-img>`);
+                 this.elementRef10.nativeElement.insertAdjacentHTML('beforeend', `<img src="${result.data.stickerUrl}"/>`);
                  this.drHandle10 = 'dragHandle';
                  this.corn10 = 'corner';
                  break;
         case 9: this.stickerdiv9 = false;
                  // tslint:disable-next-line: max-line-length
-                this.elementRef9.nativeElement.insertAdjacentHTML('beforeend', `<ion-img src=${result.data.stickerUrl}></ion-img>`);
+                this.elementRef9.nativeElement.insertAdjacentHTML('beforeend', `<img src="${result.data.stickerUrl}"/>`);
                 this.drHandle9 = 'dragHandle';
                 this.corn9 = 'corner';
                 break;
@@ -1542,11 +1553,81 @@ export class EditPagePage implements OnInit, AfterViewInit {
   }
 
   saveImage() {
-    // const element = document.getElementById('my-canvas');
-    // html2canvas(element, { allowTaint : true }).then((canvas) =>
-    // {
-    //   canvas.getContext('2d');
-    //   const image = canvas.toDataURL('image/jpeg', 1.0);
-    // });
+    const div = document.getElementById('example-boundary');
+    div.style.backgroundColor = '#fff';
+    // div.style.top = '0px';
+    this.renderer.setStyle(this.exampleBoundary.nativeElement, 'top', '0px');
+    console.log('aman writing file1');
+
+    let loadingElement;
+    let fileName;
+
+    this.loadingCtrl.create({
+      spinner: 'bubbles',
+      showBackdrop: true,
+      message: 'Please wait while Saving...',
+      keyboardClose: true,
+      animated: true
+    })
+    .then(loadingEl => {
+      loadingElement = loadingEl;
+      loadingEl.present();
+      return htmlToImage.toPng(document.getElementById('example-boundary'), { quality: 1 });
+    })
+    .then(dataUrl => {
+      // const link = document.createElement('a');
+      //   link.download = 'my-image-name.png';
+      //   link.href = dataUrl;
+      //   link.click();
+      console.log('aman writing file2');
+      // this.fileWrite(dataUrl);
+      // try {
+      //   console.log('aman writing file3');
+      //   Filesystem.writeFile({
+      //     path: 'documents/abc.png',
+      //     data: dataUrl,
+      //     encoding: FilesystemEncoding.UTF8
+      //   });
+      // } catch(e) {
+      //   console.error('Unable to write file', e);
+      // }
+      const date = new Date();
+      fileName = 'ImaziEdit-' + date.getDate() + '-' + date.getTime() + '.png';
+      return Filesystem.writeFile({
+        data: dataUrl,
+        path: `../../../../Imazi/${fileName}`,
+        directory: FilesystemDirectory.External
+      });
+    })
+    .then(result => {
+      console.log('aman writing file3');
+      return Filesystem.getUri({
+        directory: FilesystemDirectory.External,
+        path: `../../../../Imazi/${fileName}`
+      });
+    })
+    .then(result => {
+      console.log('aman writing file4');
+      const path = Capacitor.convertFileSrc(result.uri);
+      console.log('aman', path);
+      loadingElement.dismiss();
+      this.renderer.setStyle(this.exampleBoundary.nativeElement, 'top', this.topHeight);
+    })
+    .catch(error => {
+      console.log('aman', error);
+    });
   }
+
+  // fileWrite(image) {
+  //   console.log('aman writing file');
+  //   try {
+  //     Filesystem.writeFile({
+  //       path: 'documents/abc.png',
+  //       data: image,
+  //       encoding: FilesystemEncoding.UTF8
+  //     });
+  //   } catch(e) {
+  //     console.error('Unable to write file', e);
+  //   }
+  // }
 }

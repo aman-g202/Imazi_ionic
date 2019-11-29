@@ -27,12 +27,23 @@
 
 .dragHandle {
   position: absolute;
-  background-color: green;
+  // background-color: green;
 }
 
+// #exportimg{
+//   margin-top: -200px !important;
+// }
+// .dragHandle.corner {
+//   width: 6px;
+//   height: 6px;
+//   cursor: nwse-resize;
+// }
+
 .dragHandle.corner {
-  width: 6px;
-  height: 6px;
+  width: 16px;
+  height: 16px;
+  background: url("../../../assets/icon/resize.png");
+  background-position: center !important;
   cursor: nwse-resize;
 }
 
