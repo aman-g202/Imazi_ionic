@@ -27,6 +27,9 @@
 </ion-header>
 
 <ion-content slots="fixed" forceOverscroll="true">
+  <!-- <angular-cropper #angularCropper [cropperOptions]="cropperOptions"
+    [imageUrl]="pickedImage" class="ion-no-padding">
+  </angular-cropper> -->
   <angular-cropper #angularCropper [cropperOptions]="cropperOptions"
     [imageUrl]="'data:image/jpeg;base64,' + pickedImage" class="ion-no-padding">
   </angular-cropper>

@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>test</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<image-cropper
+    [imageBase64]="imageBase64"
+    [maintainAspectRatio]="false"
+    [aspectRatio]="4 / 3"
+    [resizeToWidth]="128"
+    format="png"
+    (imageCropped)="imageCropped($event)"
+    (imageLoaded)="imageLoaded()"
+    (loadImageFailed)="loadImageFailed()"
+></image-cropper>
+
+<ion-img [src]="croppedImage"></ion-img>
+
+<ion-button (click)="selectImage()"></ion-button>

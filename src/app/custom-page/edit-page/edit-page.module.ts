@@ -10,6 +10,7 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AngularCropperjsModule } from 'angular-cropperjs';
+import { Base64 } from '@ionic-native/base64/ngx';
 
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
     AngularCropperjsModule
   ],
   declarations: [EditPagePage],
-  providers: [Camera]
+  providers: [Camera, Base64]
+  // providers: [Base64]
 })
 export class EditPagePageModule{
 
